@@ -7,7 +7,7 @@ sys.path.append('../PredicateStructuring')
 
 from chunker import ChunkExtractor
 from data_dump import DataDumpSave
-from phase_extractor import PhaseExtractor
+from sentence_category_get import SentenceCategoryGet
 
 class CategoryClassification:
 
@@ -24,8 +24,8 @@ class CategoryClassification:
         self.num_chunk = chnker.num_chunk
         d_s = DataDumpSave()
         self.text_treace = d_s.text_treace
-        p_e = PhaseExtractor()
-        self.phase_get = p_e.phase_get
+        s_c_g = SentenceCategoryGet()
+        self.category_get = s_c_g.category_get
 
 
     ##########################################################################################################################################
@@ -37,10 +37,10 @@ class CategoryClassification:
         ret = ""
         for line in text.splitlines():
             l_ct = l_ct + 1
-            ret_p = self.phase_get(line, 1)
+            ret_p = self.category_get(line)
             if ret_p:
                 ret = ret + ret_p
-            if l_ct > 5:     # 5文以内にない場合は　その他
+            if l_ct > 5:     # 5文以内に何もカテゴリがない場合は　その他
                 if ret:
                     return ret
                 return "<その他>"
