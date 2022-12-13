@@ -11,11 +11,18 @@ articles4 = json.load(open('gyoukai.json'))
 
 out_file = open('category_result.tsv', 'w')
 
+debug_f = True
+
 for doc in articles4:
     for sep_doc in doc.splitlines():
         category_list = model.news_category_classification(sep_doc)  # カテゴリの候補の抽出
-#        ret = sep_doc + '\t' + category_list + '\n'
-        ret = category_list + '\n'
-        print(sep_doc + '\t' + ret)
-        out_file.write(ret)
+        print(category_list)
+        if debug_f:
+            out_file.write(category_list)
+        else:
+            ret = sep_doc + '\t' + category_list + '\n'
+            out_file.write(ret)
+    print("--------------------\n")
+    if debug_f:
+        out_file.write("----\t----\t----\t----\t----\t----\t----\t----\t----\t----\n")
 out_file.close()
