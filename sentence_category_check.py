@@ -131,7 +131,7 @@ class SentenceCategoryCheker:
     ##########################################################################################################################################
 
     def sub_phase_check(self, predicate, *doc):
-        rule = PhaseRule()
+        rule = CategoryRule()
 
         if predicate["sub_lemma"]:
             if predicate["sub_lemma"] in rule.mirai:
@@ -149,8 +149,8 @@ class SentenceCategoryCheker:
         chunker = ChunkExtractor()
         s_v_dic = SubVerbDic()
 
-        if p_rule == PhaseRule:
-            return False
+#        if p_rule == PhaseRule:
+#            return False
         start = predicate["lemma_start"]
         end = predicate["lemma_end"]
         if doc[end].lemma_ == "する" and "名詞" in doc[end - 1].tag_:
@@ -249,9 +249,9 @@ class SentenceCategoryCheker:
                                 new_end = c_pt - 1
                                 break
                         verb_word = chunker.compaound(chek_predicate["lemma_start"], new_end, *doc)
-                        if p_rule == PhaseRule:
-                            if verb_word in s_v_dic.sub_verb_dic:
-                                continue
+#                        if p_rule == PhaseRule:
+#                            if verb_word in s_v_dic.sub_verb_dic:
+#                                continue
                     if re_arg["case"] == 'は' and not re_arg["subject"]:
                         no_subject = True
                         for check in argument:

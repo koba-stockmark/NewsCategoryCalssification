@@ -20,7 +20,6 @@ class SentenceCategoryGet:
         self.pas_analysis = pas_model.pas_analysis
         scc_model = SentenceCategoryCheker()
         self.sentence_category_check = scc_model.sentence_category_check
-        self.government_action_get_and_set = scc_model.government_action_get_and_set
         d_d_s = DataDumpSave()
         self.data_dump_and_save = d_d_s.data_dump_and_save
         self.data_dump_and_save2 = d_d_s.data_dump_and_save2

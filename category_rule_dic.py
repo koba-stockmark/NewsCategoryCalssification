@@ -142,3 +142,22 @@ class CategoryRule:
                           "までを", "も", "にて", "でも", "が", "として", "は", "により", "で",
                           "され", "ましたので", "れましたので", "では", "から", "と"
                           ]
+
+    phrase_rule = [{"label": "<検討>", "words": kentou_dic},
+                   {"label": "<検討>", "rule": o_v_kentou_dic},
+                   {"label": "<検討>", "rule": o_v_kentou2_dic},
+                   {"label": "<検討>", "rule": o_v_kentou3_dic},
+                   {"label": "<検討>", "rule": o_v_kentou4_dic}
+                   ]
+
+    # 補助述部でも政府活動と認めるカテゴリのルール
+    sub_phrase_rule = [
+        {"label": "<検討>", "words": kentou_dic}
+    ]
+
+    """
+    時制に関する補助用言
+    """
+    kako = [""]
+    genzai = [""]
+    mirai = ["予定", "計画", "目指す"]
