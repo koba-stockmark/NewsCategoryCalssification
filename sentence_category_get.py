@@ -27,10 +27,7 @@ class SentenceCategoryGet:
         self.text_treace = d_d_s.text_treace
 
     """
-    主述部と補助術部に別れた述語項構造の取得
-    mode = 0 : フェーズチェク
-    mode = 1 : 政府活動チェク
-    mode = 2 : 政府HPチェク
+    文を解析してカテゴリの取得
     """
 
     def category_get(self, text):
@@ -54,13 +51,13 @@ class SentenceCategoryGet:
             ret = ret + pas_result[1]
         # デバッグ表示用解析データ
         ##########################################################################################################################################
-        #    主述部のフェイズチェック
+        #    主述部のカテゴリチェック
         ##########################################################################################################################################
-        single_category = self.sentence_category_check(predicate, argument, *doc)
+        category = self.sentence_category_check(predicate, argument, *doc)
         # デバッグ表示用解析データ
         if debug:
             ret = ret + self.data_dump_and_save2(text, argument, predicate)
             self.data_dump_and_save3(text, argument, predicate)
-            print(single_category)
+            print(category)
             return ret
         # デバッグ表示用解析データ
