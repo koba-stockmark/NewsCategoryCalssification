@@ -61,3 +61,4 @@ class SentenceCategoryGet:
             print(category)
             return ret
         # デバッグ表示用解析データ
+        return category

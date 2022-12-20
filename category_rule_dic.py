@@ -150,7 +150,7 @@ class CategoryRule:
 
     # 議案
     gian_dic = [
-        "議案"
+        "議案", "提出"
     ]
 
     # 会談
@@ -335,7 +335,7 @@ class CategoryRule:
 
     # 商品化
     shouhin_dic = [
-        "商品化", "製品化"
+        "商品化", "製品化", "商用展開"
         ]
 
     # 価格変更
