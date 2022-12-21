@@ -93,17 +93,21 @@ class SentenceCategoryCheker:
         if verb_word in s_v_dic.sub_verb_dic and verb_word not in s_v_dic.special_sub_verb_dic and obj_start >= 0:
             ret2 = self.category_chek(obj_start, obj_end, -1, -1, -1, -1, '', p_rule,  *doc)
             # 項全体として重複をチェック
-            for ret3 in ret2.split(','):
-                if ret3 not in ret:
-                    ret = ret + ',' + ret3 + ','
+            if ret2:
+                for ret3 in ret2.split(','):
+                    if ret and ret3 not in ret:
+                        ret = ret + ',' + ret3
+                    else:
+                        ret = ret3
             # 項の部分要素を重複をチェック
             for pt in range(obj_start, obj_end + 1):
                 if (len(doc) > pt + 1 and (doc[pt + 1].lemma_ == '方' or doc[pt + 1].lemma_ == 'ため')) or (len(doc) > pt + 2 and doc[pt + 1].pos_ == 'AUX' and (doc[pt + 2].lemma_ == '方' or doc[pt + 2].lemma_ == 'ため')):      # 〇〇する方　はフェーズ判断に用いな
                     continue
                 ret2 = self.category_chek(pt, pt, -1, -1, -1, -1, '', p_rule, *doc)
-                for ret3 in ret2.split(','):
-                    if ret3 not in ret:
-                        ret = ret + ',' + ret3 + ','
+                if ret2:
+                    for ret3 in ret2.split(','):
+                        if ret3 not in ret:
+                            ret = ret + ',' + ret3
         # 補助表現がメイン術部のとき
         if not pre_category and not ret and verb_word in s_v_dic.sub_verb_dic:
             for rule in p_rule.phrase_rule:
@@ -283,7 +287,7 @@ class SentenceCategoryCheker:
                                                 for append in add_category.split(','):  # 重複は登録しない
                                                     if append != '<その他>' and append != '<告知>' and append not in sub_category:
                                                         if sub_category:
-                                                            sub_category = category + ',' + append
+                                                            sub_category = sub_category + ',' + append
                                                         else:
                                                             sub_category = append
                             category = self.category_chek(chek_predicate["lemma_start"], check_end, chek_predicate["sub_lemma_start"], chek_predicate["sub_lemma_end"], re_arg['lemma_start'], re_arg['lemma_end'], pre_category, p_rule, *doc)

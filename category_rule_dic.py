@@ -117,7 +117,7 @@ class CategoryRule:
     ]
     # 見解
     kenkai_dic = [
-        "見解", "見る"
+        "見解", "見る", "みる", "思う", "考える"
     ]
     # 提案
     teian_dic = [
@@ -205,8 +205,8 @@ class CategoryRule:
         "行革", "改革"
         ]
     # O-V 規則
-    o_v_gyoukaku_dic = {"obj": {"政府"},
-                      "verb": {"推進"}
+    o_v_gyoukaku_dic = {"obj": {"政府", "行政"},
+                      "verb": {"推進", "変革"}
                       }
 
     # 政府・認可
@@ -394,12 +394,16 @@ class CategoryRule:
 
     # 設備
     setubi_dic = [
-        "設備"
+        "設備", "供給拠点", "生産拠点"
         ]
     # O-V 規則
     o_v_setubi_dic = {"obj": {"所", "場", "店", "センター", "ラボ", "施設", "オフィース", "ビル"},
                       "verb": {"構築", "拠点", "増強", "新設", "着工", "竣工", "建てる"}
                       }
+    # O-V 規則
+    o_v_setubi2_dic = {"obj": {"生産能力", "生産速度", "拠点"},
+                       "verb": {"増強", "増やす", "加速"}
+                       }
 
     # 技術背景
     gijyutsu_dic = [
@@ -428,7 +432,7 @@ class CategoryRule:
 
     # 背景
     haikei_dic = [
-        "背景", "けん引する", "主流", "格好", "題がある", "迫る", "動き出す"
+        "背景", "けん引", "主流", "格好", "題がある", "迫る", "動き出す"
         ]
 
 ##################################################################################
@@ -507,6 +511,7 @@ class CategoryRule:
         {"label": "<海外進出>", "words": kaigai_dic},
         {"label": "<設備投資>", "words": setubi_dic},
         {"label": "<設備投資>", "rule": o_v_setubi_dic},
+        {"label": "<設備投資>", "rule": o_v_setubi2_dic},
         {"label": "<技術背景>", "words": gijyutsu_dic},
         {"label": "<社会情勢>", "words": shakai_dic},
         {"label": "<前提>", "words": zentei_dic},
