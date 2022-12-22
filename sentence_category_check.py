@@ -76,19 +76,21 @@ class SentenceCategoryCheker:
             for rule in p_rule.phrase_rule:
                 if "words" in rule:
                     if self.rule_check(verb_word, rule["words"]):
-                        if ret:
-                            ret = ret + ',' + rule["label"]
-                        else:
-                            ret = ret + rule["label"]
+                        if rule["label"] not in ret:
+                            if ret:
+                                ret = ret + ',' + rule["label"]
+                            else:
+                                ret = ret + rule["label"]
             # フルマッチでない場合は後方マッチ
             if not ret:
                 for rule in p_rule.phrase_rule:
                     if "words" in rule:
                         if self.rule_check2(verb_word, rule["words"]):
-                            if ret:
-                                ret = ret + ',' + rule["label"]
-                            else:
-                                ret = ret + rule["label"]
+                            if rule["label"] not in ret:
+                                if ret:
+                                    ret = ret + ',' + rule["label"]
+                                else:
+                                    ret = ret + rule["label"]
         # 目的語からフェーズをチェック
         if verb_word in s_v_dic.sub_verb_dic and verb_word not in s_v_dic.special_sub_verb_dic and obj_start >= 0:
             ret2 = self.category_chek(obj_start, obj_end, -1, -1, -1, -1, '', p_rule,  *doc)
@@ -106,8 +108,10 @@ class SentenceCategoryCheker:
                 ret2 = self.category_chek(pt, pt, -1, -1, -1, -1, '', p_rule, *doc)
                 if ret2:
                     for ret3 in ret2.split(','):
-                        if ret3 not in ret:
+                        if ret and ret3 not in ret:
                             ret = ret + ',' + ret3
+                        else:
+                            ret = ret3
         # 補助表現がメイン術部のとき
         if not pre_category and not ret and verb_word in s_v_dic.sub_verb_dic:
             for rule in p_rule.phrase_rule:
