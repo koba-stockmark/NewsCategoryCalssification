@@ -12,6 +12,7 @@ class CategoryRule:
 イベント
 説明
 セミナー
+コラム
 
     解説
     談話・講話
@@ -35,6 +36,7 @@ class CategoryRule:
 市場データ
 情報公開
 レポート
+市場動向
 
     規制・制定
 政府・行革
@@ -88,6 +90,7 @@ class CategoryRule:
     価格変更
 価格変更
 価格
+株価
 
     人事
 人事
@@ -113,7 +116,7 @@ class CategoryRule:
     """
     # 意見
     iken_dic = [
-        "意見", "述べる"
+        "意見", "述べる", "主張", "論ずる"
     ]
     # 見解
     kenkai_dic = [
@@ -143,6 +146,18 @@ class CategoryRule:
                                 "開催", "催す", "開く", "受講", "視聴"}
                        }
 
+    # コラム
+    column_dic = [
+        "コラム"
+    ]
+    # O-V 規則
+    o_v_column_dic = {"obj": {"経歴"},
+                      "verb": {"持つ"}
+                      }
+    o_v_column2_dic = {"obj": {"販売"},
+                       "verb": {"担当"}
+                       }
+
     # 説明
     setusmei_dic = [
         "説明"
@@ -157,6 +172,10 @@ class CategoryRule:
     gian_dic = [
         "議案", "提出"
     ]
+    # O-V 規則
+    o_v_gian_dic = {"obj": {"争点"},
+                    "verb": {"なる"}
+                    }
 
     # 会談
     kaigi_dic = [
@@ -209,6 +228,18 @@ class CategoryRule:
                       "verb": {"発表", "報告", "リリース"}
                       }
 
+    # 市場動向
+    shikyou_dic = [
+        "市況", "市場動向"
+    ]
+    # O-V 規則
+    o_v_shikyou_dic = {"obj": {"販売", "売上"},
+                       "verb": {"好調", "不調", "いい", "悪い"}
+                       }
+    o_v_shikyou2_dic = {"obj": {"人気", "好調", "不調"},
+                        "verb": {"要因", "原因", "理由", "わけ"}
+                        }
+
     # 政府・行革
     gyoukaku_dic = [
         "行革", "改革"
@@ -223,8 +254,8 @@ class CategoryRule:
         "認可", "承認"
     ]
     # O-V 規則
-    o_v_ninnka_dic = {"obj": {"認可", "承認"},
-                      "verb": {"出す", "取得"}
+    o_v_ninnka_dic = {"obj": {"認可", "承認", "要請"},
+                      "verb": {"出す", "取得", "始める", "進める"}
                       }
 
     # 政府活動・宣言
@@ -277,12 +308,13 @@ class CategoryRule:
     # 方針
     housin_dic = [
         "方針", "据える", "加速", "発掘", "打ち出す", "振り向ける", "図る", "目指す", "導入", "高める", "充実", "能力増と", "増強",
-        "表明", "見込みです", "対応", "強化", "決定", "進める", "上げる", "応ずる", "転換", "始動", "示す", "掲げる", "突入"
+        "表明", "見込みです", "対応", "強化", "決定", "進める", "上げる", "応ずる", "転換", "始動", "示す", "掲げる", "突入",
+        "明らかにする"
     ]
 
     # 目標
     mokuhyou_dic = [
-        "目標", "目指す"
+        "目標", "目指す", "見通し"
     ]
 
     # 行動変化
@@ -330,7 +362,7 @@ class CategoryRule:
     ]
     # O-V 規則
     o_v_service_dic = {"obj": {"サービス", "提供", "サイト", "ホームページ", "ＨＰ", "取扱", "販売"},
-                       "verb": {"開始", "始める", "オープン"}
+                       "verb": {"開始", "始める", "オープン", "再開", "リニューアル"}
                        }
 
     # 生産開始
@@ -374,6 +406,22 @@ class CategoryRule:
     o_v_price2_dic = {"obj": {"価格", "料金", "費用"},
                       "verb": {"円", "ドル", "ユーロ"}
                       }
+
+    # 株概況
+    kabu_dic = [
+        "株価", "株式市場", "高値", "安値", "小幅高", "ストップ高", "ストップ安", "反発", "不成立", "急落", "急伸", "続落", "続伸",
+        "大幅高", "小動き"
+    ]
+    o_v_kabu_dic = {"obj": {"株価", "初値", "終値", "公開価格", "高値"},
+                    "verb": {"円", "ドル", "ユーロ",
+                             "上昇", "下落", "引き上げ", "引き下げ", "付ける", "上回る", "下回る", "つける"}
+                    }
+    o_v_kabu2_dic = {"obj": {"円", "ドル", "ユーロ"},
+                     "verb": {"付ける", "つける"}
+                     }
+    o_v_kabu3_dic = {"obj": {"取引"},
+                     "verb": {"終える", "始める"}
+                     }
 
     # 人事
     jinnji_dic = [
@@ -454,7 +502,7 @@ class CategoryRule:
 
     # 背景
     haikei_dic = [
-        "背景", "けん引", "主流", "格好", "題がある", "迫る", "動き出す"
+        "背景", "けん引", "主流", "格好", "課題がある", "迫る", "動き出す", "長期化", "滞る"
     ]
 
     ##################################################################################
@@ -475,9 +523,13 @@ class CategoryRule:
         {"label": "<イベント>", "rule": o_v_event_dic},
         {"label": "<セミナー>", "words": seminar_dic},
         {"label": "<セミナー>", "rule": o_v_seminar_dic},
+        {"label": "<コラム>", "words": column_dic},
+        {"label": "<コラム>", "rule": o_v_column_dic},
+        {"label": "<コラム>", "rule": o_v_column2_dic},
         {"label": "<説明>", "words": setusmei_dic},
         {"label": "<紹介>", "words": shoukai_dic},
         {"label": "<議案>", "words": gian_dic},
+        {"label": "<議案>", "rule": o_v_gian_dic},
         {"label": "<会議>", "words": kaigi_dic},
         {"label": "<会議>", "rule": o_v_kaigi_dic},
         {"label": "<対談>", "words": taidan_dic},
@@ -489,6 +541,9 @@ class CategoryRule:
         {"label": "<情報公開>", "words": koukai_dic},
         {"label": "<レポート>", "words": report_dic},
         {"label": "<レポート>", "rule": o_v_report_dic},
+        {"label": "<市場動向>", "words": shikyou_dic},
+        {"label": "<市場動向>", "rule": o_v_shikyou_dic},
+        {"label": "<市場動向>", "rule": o_v_shikyou2_dic},
         {"label": "<政府・行革>", "words": gyoukaku_dic},
         {"label": "<政府・行革>", "rule": o_v_gyoukaku_dic},
         {"label": "<政府・認可>", "words": ninnka_dic},
@@ -525,6 +580,10 @@ class CategoryRule:
         {"label": "<価格>", "words": price_dic},
         {"label": "<価格>", "rule": o_v_price_dic},
         {"label": "<価格>", "rule": o_v_price2_dic},
+        {"label": "<株式概況>", "words": kabu_dic},
+        {"label": "<株式概況>", "rule": o_v_kabu_dic},
+        {"label": "<株式概況>", "rule": o_v_kabu2_dic},
+        {"label": "<株式概況>", "rule": o_v_kabu3_dic},
         {"label": "<人事>", "words": jinnji_dic},
         {"label": "<組織>", "words": sosiki_dic},
         {"label": "<設立>", "words": seturitu_dic},

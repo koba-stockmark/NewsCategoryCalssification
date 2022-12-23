@@ -263,7 +263,8 @@ class SentenceCategoryCheker:
                     if len(check_case) == 1 or (check_case.startswith("に") and check_case != "について"):
                         check_case = re_arg["case"]     # に-副詞的 などは対象外
                     if check_case not in rule.category_analyze_case:
-                        continue
+                        if "です" not in chek_predicate["lemma"]:
+                            continue
                     if "rentai_subject" in re_arg:      # 連体修飾からの主語は対象外
                         continue
                     if not category:
