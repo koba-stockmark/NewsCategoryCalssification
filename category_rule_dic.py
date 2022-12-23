@@ -148,7 +148,7 @@ class CategoryRule:
 
     # コラム
     column_dic = [
-        "コラム"
+        "コラム", "知る"
     ]
     # O-V 規則
     o_v_column_dic = {"obj": {"経歴"},
@@ -167,6 +167,9 @@ class CategoryRule:
     shoukai_dic = [
         "紹介"
     ]
+    o_v_shoukai_dic = {"obj": {"記事"},
+                       "verb": {"選ぶ"}
+                       }
 
     # 議案
     gian_dic = [
@@ -287,9 +290,12 @@ class CategoryRule:
         "業績", ""
     ]
     # O-V 規則
-    o_v_gyouseki_dic = {"obj": {"業績", "売上", "利益", "損失"},
-                        "verb": {"発表", "計上", "円"}
+    o_v_gyouseki_dic = {"obj": {"業績", "売上", "利益", "損失", "予想"},
+                        "verb": {"発表", "計上", "円", "押し上げる", "上回る"}
                         }
+    o_v_gyouseki2_dic = {"obj": {"黒字", "赤字", "増益", "減益", "増収", "減収"},
+                         "verb": {"見込み", "見込む", "見通し", "予想", "予測"}
+                         }
 
     # 経営戦略
     senryaku_dic = [
@@ -335,10 +341,14 @@ class CategoryRule:
     teikei_dic = [
         "提携", "連携"
     ]
+    # O-V 規則
+    o_v_teikei_dic = {"obj": {"技術"},
+                       "verb": {"吸収"}
+                       }
 
     # 採用利用
     riyou_dic = [
-        "採用", "利用", "活用", "導入"
+        "採用", "利用", "活用", "導入", "供給"
     ]
 
     # 支援
@@ -457,6 +467,9 @@ class CategoryRule:
     kaigai_dic = [
         "海外展開", "進出"
     ]
+    o_v_kaigai_dic = {"obj": {"国事業"},
+                     "verb": {"めざす", "目指す"}
+                     }
 
     # 設備
     setubi_dic = [
@@ -467,8 +480,8 @@ class CategoryRule:
                       "verb": {"構築", "拠点", "増強", "新設", "着工", "竣工", "建てる", "建設"}
                       }
     # O-V 規則
-    o_v_setubi2_dic = {"obj": {"生産能力", "生産速度", "拠点"},
-                       "verb": {"増強", "増やす", "加速"}
+    o_v_setubi2_dic = {"obj": {"生産能力", "生産速度", "拠点", "事業"},
+                       "verb": {"増強", "増やす", "加速", "拡大"}
                        }
     # O-V 規則
     o_v_setubi3_dic = {"obj": {"構築", "拠点", "着工", "竣工", "建てる", "建設"},
@@ -528,6 +541,7 @@ class CategoryRule:
         {"label": "<コラム>", "rule": o_v_column2_dic},
         {"label": "<説明>", "words": setusmei_dic},
         {"label": "<紹介>", "words": shoukai_dic},
+        {"label": "<紹介>", "rule": o_v_shoukai_dic},
         {"label": "<議案>", "words": gian_dic},
         {"label": "<議案>", "rule": o_v_gian_dic},
         {"label": "<会議>", "words": kaigi_dic},
@@ -555,6 +569,7 @@ class CategoryRule:
         {"label": "<実験>", "words": jikken_dic},
         {"label": "<業績>", "words": gyouseki_dic},
         {"label": "<業績>", "rule": o_v_gyouseki_dic},
+        {"label": "<業績>", "rule": o_v_gyouseki2_dic},
         {"label": "<戦略>", "words": senryaku_dic},
         {"label": "<戦略>", "rule": o_v_senryaku_dic},
         {"label": "<施策>", "words": sisaku_dic},
@@ -564,6 +579,7 @@ class CategoryRule:
         {"label": "<対策>", "words": taisaku_dic},
         {"label": "<対策>", "rule": o_v_taisaku_dic},
         {"label": "<提携>", "words": teikei_dic},
+        {"label": "<提携>", "rule": o_v_teikei_dic},
         {"label": "<利用・採用>", "words": riyou_dic},
         {"label": "<支援>", "words": sien_dic},
         {"label": "<投資>", "words": tousi_dic},
@@ -590,7 +606,8 @@ class CategoryRule:
         {"label": "<設立>", "rule": o_v_seturtu_dic},
         {"label": "<組織変更>", "words": sohen_dic},
         {"label": "<組織変更>", "rule": o_v_sohen_dic},
-        {"label": "<海外進出>", "words": kaigai_dic},
+        {"label": "<海外展開>", "words": kaigai_dic},
+        {"label": "<海外展開>", "rule": o_v_kaigai_dic},
         {"label": "<設備投資>", "words": setubi_dic},
         {"label": "<設備投資>", "rule": o_v_setubi_dic},
         {"label": "<設備投資>", "rule": o_v_setubi2_dic},
