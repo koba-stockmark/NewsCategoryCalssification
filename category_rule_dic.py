@@ -126,6 +126,10 @@ class CategoryRule:
     teian_dic = [
         "提案"
     ]
+    # 疑問
+    modality_gimon_dic = [
+        "<疑問>"
+    ]
 
     # イベント
     event_dic = [
@@ -138,7 +142,7 @@ class CategoryRule:
 
     # セミナー
     seminar_dic = [
-        "セミナー", "聞きいただける"
+        "セミナー", "聞きいただける", "ウェビナー", "解説"
     ]
     # O-V 規則
     o_v_seminar_dic = {"obj": {"セミナー"},
