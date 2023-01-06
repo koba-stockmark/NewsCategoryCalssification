@@ -126,6 +126,9 @@ class CategoryRule:
     teian_dic = [
         "提案"
     ]
+    modality_teian_dic = [
+        "<勧誘>"
+    ]
     # 疑問
     modality_gimon_dic = [
         "<疑問>"
@@ -536,6 +539,8 @@ class CategoryRule:
         {"label": "<意見>", "words": iken_dic},
         {"label": "<見解>", "words": kenkai_dic},
         {"label": "<提案>", "words": teian_dic},
+        {"label": "<提案>", "modality": modality_teian_dic},
+        {"label": "<疑問>", "modality": modality_gimon_dic},
         {"label": "<イベント>", "words": event_dic},
         {"label": "<イベント>", "rule": o_v_event_dic},
         {"label": "<セミナー>", "words": seminar_dic},
