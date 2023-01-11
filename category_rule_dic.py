@@ -155,7 +155,7 @@ class CategoryRule:
 
     # コラム
     column_dic = [
-        "コラム", "知る", "まとめる", "ご覧"
+        "コラム", "知る", "まとめる", "ご覧", "問う"
     ]
     # O-V 規則
     o_v_column_dic = {"obj": {"経歴"},
@@ -223,6 +223,10 @@ class CategoryRule:
     shijyou_dic = [
         "市場データ", "市場の見通し", "情報源"
     ]
+    # O-V 規則
+    o_v_shijyou_dic = {"obj": {"割合", "比率", "％"},
+                       "verb": {"とどまる"}
+                       }
 
     # 情報公開
     koukai_dic = [
@@ -424,10 +428,10 @@ class CategoryRule:
                       "verb": {"円", "ドル", "ユーロ"}
                       }
 
-    # 株概況
+    # 株式概況
     kabu_dic = [
         "株価", "株式市場", "高値", "安値", "小幅高", "ストップ高", "ストップ安", "反発", "不成立", "急落", "急伸", "続落", "続伸",
-        "大幅高", "小動き"
+        "大幅高", "小動き", "株主総会"
     ]
     o_v_kabu_dic = {"obj": {"株価", "初値", "終値", "公開価格", "高値"},
                     "verb": {"円", "ドル", "ユーロ",
@@ -438,6 +442,9 @@ class CategoryRule:
                      }
     o_v_kabu3_dic = {"obj": {"取引"},
                      "verb": {"終える", "始める"}
+                     }
+    o_v_kabu4_dic = {"obj": {"投資家"},
+                     "verb": {"求める"}
                      }
 
     # 人事
@@ -561,6 +568,7 @@ class CategoryRule:
         {"label": "<予測>", "words": yosoku_dic},
         {"label": "<予測>", "rule": o_v_yosoku_dic},
         {"label": "<市場データ>", "words": shijyou_dic},
+        {"label": "<市場データ>", "rule": o_v_shijyou_dic},
         {"label": "<情報公開>", "words": koukai_dic},
         {"label": "<レポート>", "words": report_dic},
         {"label": "<レポート>", "rule": o_v_report_dic},
@@ -609,6 +617,7 @@ class CategoryRule:
         {"label": "<株式概況>", "rule": o_v_kabu_dic},
         {"label": "<株式概況>", "rule": o_v_kabu2_dic},
         {"label": "<株式概況>", "rule": o_v_kabu3_dic},
+        {"label": "<株式概況>", "rule": o_v_kabu4_dic},
         {"label": "<人事>", "words": jinnji_dic},
         {"label": "<組織>", "words": sosiki_dic},
         {"label": "<設立>", "words": seturitu_dic},
