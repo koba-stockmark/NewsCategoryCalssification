@@ -118,6 +118,10 @@ class CategoryRule:
     iken_dic = [
         "意見", "述べる", "主張", "論ずる"
     ]
+    # O-V 規則
+    o_v_iken_dic = {"obj": {"感"},
+                    "verb": {"覚える", "感じる", "抱く"}
+                    }
     # 見解
     kenkai_dic = [
         "見解", "見る", "みる", "思う", "考える"
@@ -167,7 +171,7 @@ class CategoryRule:
 
     # 説明
     setusmei_dic = [
-        "説明"
+        "説明", "解説"
     ]
 
     # 紹介
@@ -224,9 +228,12 @@ class CategoryRule:
         "市場データ", "市場の見通し", "情報源"
     ]
     # O-V 規則
-    o_v_shijyou_dic = {"obj": {"割合", "比率", "％"},
-                       "verb": {"とどまる"}
+    o_v_shijyou_dic = {"obj": {"割合", "比率", "％", "量"},
+                       "verb": {"とどまる", "倍"}
                        }
+    o_v_shijyou2_dic = {"obj": {"円", "ドル", "トン"},
+                        "verb": {"超える"}
+                        }
 
     # 情報公開
     koukai_dic = [
@@ -281,9 +288,9 @@ class CategoryRule:
                       "verb": {"出す", "発表", "報告", "リリース"}
                       }
 
-    # 開発
+    # 技術開発
     kaihatsu_dic = [
-        "開発", "設計"
+        "開発", "設計", "確立", "変換"
     ]
 
     # 研究開発
@@ -326,12 +333,12 @@ class CategoryRule:
     housin_dic = [
         "方針", "据える", "加速", "発掘", "打ち出す", "振り向ける", "図る", "目指す", "導入", "高める", "充実", "能力増と", "増強",
         "表明", "見込みです", "対応", "強化", "決定", "進める", "上げる", "応ずる", "転換", "始動", "示す", "掲げる", "突入",
-        "明らかにする"
+        "明らかにする", "宣言"
     ]
 
     # 目標
     mokuhyou_dic = [
-        "目標", "目指す", "見通し"
+        "目標", "目指す", "見通し", "つなげる"
     ]
 
     # 行動変化
@@ -350,7 +357,7 @@ class CategoryRule:
 
     # 業務提携
     teikei_dic = [
-        "提携", "連携"
+        "提携", "連携", "協業"
     ]
     # O-V 規則
     o_v_teikei_dic = {"obj": {"技術"},
@@ -374,15 +381,15 @@ class CategoryRule:
 
     # 資金調達
     sikin_dic = [
-        "資金調達", "債券", "発行", "調達", "増資"
+        "資金調達", "債券", "発行", "調達", "増資", "財源", "償還"
     ]
 
     # サービス開始
     service_dic = [
-        "サービス開始"
+        "サービス開始", "稼働", "参入"
     ]
     # O-V 規則
-    o_v_service_dic = {"obj": {"サービス", "提供", "サイト", "ホームページ", "ＨＰ", "取扱", "販売", "事業"},
+    o_v_service_dic = {"obj": {"サービス", "提供", "サイト", "ホームページ", "ＨＰ", "取扱", "販売", "事業", "場"},
                        "verb": {"開始", "始める", "オープン", "再開", "リニューアル", "参入"}
                        }
 
@@ -397,7 +404,7 @@ class CategoryRule:
 
     # 商品化
     shouhin_dic = [
-        "商品化", "製品化", "商用展開", "市場投入", "販売"
+        "商品化", "製品化", "商用展開", "市場投入", "販売", "登録"
     ]
     # O-V 規則
     o_v_shouhin_dic = {"obj": {"市場", "製品", "商品", "サービス", "新型", "最新"},
@@ -490,7 +497,7 @@ class CategoryRule:
         "設備", "供給拠点", "生産拠点", "竣工", "着工"
     ]
     # O-V 規則
-    o_v_setubi_dic = {"obj": {"所", "場", "店", "センター", "ラボ", "施設", "オフィース", "ビル"},
+    o_v_setubi_dic = {"obj": {"所", "場", "店", "センター", "ラボ", "施設", "オフィース", "ビル", "プラント"},
                       "verb": {"構築", "拠点", "増強", "新設", "着工", "竣工", "建てる", "建設"}
                       }
     # O-V 規則
@@ -514,23 +521,27 @@ class CategoryRule:
 
     # 前提
     zentei_dic = [
-        "前提", "踏まえる"
+        "前提", "踏まえる", "不可欠"
     ]
 
     # 現象
     gensyou_dic = [
-        "現象", "減少", "増加"
+        "現象", "減少", "増加", "遅れる", "早まる"
     ]
 
     # 効果
     kouka_dic = [
-        "効果", "果たす", "分離", "異なる", "低減", "発揮", "高性能"
+        "効果", "果たす", "分離", "異なる", "低減", "発揮", "高性能", "減らせる", "増やせる", "両立"
     ]
 
     # 背景
     haikei_dic = [
-        "背景", "けん引", "主流", "格好", "課題がある", "迫る", "動き出す", "長期化", "滞る"
+        "背景", "けん引", "主流", "格好", "課題がある", "動き出す", "深刻化"
     ]
+    # V_m 規則
+    v_m_haikei_dic = {"verb": {"影響", "長期化", "滞る", "減る", "増える", "迫る", "響く", "更新", "超える", "遅れる"},
+                      "modality": {"<過去>"}
+                      }
 
     ##################################################################################
 
@@ -544,6 +555,7 @@ class CategoryRule:
 
     phrase_rule = [
         {"label": "<意見>", "words": iken_dic},
+        {"label": "<意見>", "rule": o_v_iken_dic},
         {"label": "<見解>", "words": kenkai_dic},
         {"label": "<提案>", "words": teian_dic},
         {"label": "<提案>", "modality": modality_teian_dic},
@@ -569,6 +581,7 @@ class CategoryRule:
         {"label": "<予測>", "rule": o_v_yosoku_dic},
         {"label": "<市場データ>", "words": shijyou_dic},
         {"label": "<市場データ>", "rule": o_v_shijyou_dic},
+        {"label": "<市場データ>", "rule": o_v_shijyou2_dic},
         {"label": "<情報公開>", "words": koukai_dic},
         {"label": "<レポート>", "words": report_dic},
         {"label": "<レポート>", "rule": o_v_report_dic},
@@ -581,7 +594,7 @@ class CategoryRule:
         {"label": "<政府・認可>", "rule": o_v_ninnka_dic},
         {"label": "<政府・宣言>", "words": sengen_dic},
         {"label": "<政府・宣言>", "rule": o_v_sengen_dic},
-        {"label": "<開発>", "words": kaihatsu_dic},
+        {"label": "<技術開発>", "words": kaihatsu_dic},
         {"label": "<研究>", "words": kenkyuu_dic},
         {"label": "<実験>", "words": jikken_dic},
         {"label": "<業績>", "words": gyouseki_dic},
@@ -635,7 +648,8 @@ class CategoryRule:
         {"label": "<前提>", "words": zentei_dic},
         {"label": "<現象>", "words": gensyou_dic},
         {"label": "<効果>", "words": kouka_dic},
-        {"label": "<背景>", "words": haikei_dic}
+        {"label": "<背景>", "words": haikei_dic},
+        {"label": "<背景>", "rule": v_m_haikei_dic}
     ]
 
     # 補助述部でも政府活動と認めるカテゴリのルール

@@ -44,9 +44,17 @@ class SentenceCategoryCheker:
                         if check_verb and check_verb in verb_word:
                             verb_ok = True
                             break
-                    if verb_ok:
+                    if verb_ok and "obj" in rule["rule"]:
                         for check_obj in rule["rule"]["obj"]:
                             if check_obj and check_obj in obj_word:
+                                if ret:
+                                    ret = ret + ',' + rule["label"]
+                                else:
+                                    ret = ret + rule["label"]
+                                break
+                    if verb_ok and "modality" in rule["rule"]:
+                        for check_modal in rule["rule"]["modality"]:
+                            if check_modal and check_modal in modality_w:
                                 if ret:
                                     ret = ret + ',' + rule["label"]
                                 else:
@@ -189,7 +197,7 @@ class SentenceCategoryCheker:
                                 if check_verb and check_verb in verb_word:
                                     verb_ok = True
                                     break
-                            if verb_ok:
+                            if verb_ok and "obj" in rule["rule"]:
                                 for check_obj in rule["rule"]["obj"]:
                                     if check_obj and check_obj in obj_word:
                                         return True
@@ -246,9 +254,10 @@ class SentenceCategoryCheker:
                     category = ''
                     if chek_predicate["id"] != re_arg["predicate_id"]:
                         continue
-                    no_argument = False
                     if not re_arg["case"]:
                         continue
+                    if "副詞的" not in re_arg["case"]:
+                        no_argument = False
                     if re_arg["subject"] and doc[re_arg["lemma_end"]].lemma_ != 'こと' and re_arg["case"] != 'が' and re_arg["case"] != 'も':  # 他の項がある主語からフェーズ生成はない
                         new_end = chek_predicate["lemma_end"]
                         for c_pt in range(chek_predicate["lemma_start"], chek_predicate["lemma_end"]):  # 述部の語幹だけを切り出す
