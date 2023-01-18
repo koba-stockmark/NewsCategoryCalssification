@@ -131,13 +131,14 @@ class SentenceCategoryCheker:
                             ret = ret + rule["label"]
         # モダリティによるチェック
         if modality_w:
-            for rule in p_rule.phrase_rule:
-                if "modality" in rule:
-                    if modality_w in rule["modality"]:
-                        if ret:
-                            ret = ret + ',' + rule["label"]
-                        else:
-                            ret = ret + rule["label"]
+            for che_mmodality_w in modality_w:
+                for rule in p_rule.phrase_rule:
+                    if "modality" in rule:
+                        if che_mmodality_w in rule["modality"]:
+                            if ret:
+                                ret = ret + ',' + rule["label"]
+                            else:
+                                ret = ret + rule["label"]
 
         return ret.rstrip(',')
 
@@ -256,7 +257,7 @@ class SentenceCategoryCheker:
                         continue
                     if not re_arg["case"]:
                         continue
-                    if "副詞的" not in re_arg["case"]:
+                    if "副詞的" not in re_arg["case"] and "連体修飾" not in re_arg["case"]:
                         no_argument = False
                     if re_arg["subject"] and doc[re_arg["lemma_end"]].lemma_ != 'こと' and re_arg["case"] != 'が' and re_arg["case"] != 'も':  # 他の項がある主語からフェーズ生成はない
                         new_end = chek_predicate["lemma_end"]

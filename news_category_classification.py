@@ -27,6 +27,50 @@ class CategoryClassification:
         s_c_g = SentenceCategoryGet()
         self.category_get = s_c_g.category_get
 
+    ######################################################
+    #  タイトル最後のカッコ書きを削除する
+    ######################################################
+    def punct_cut(self, text):
+        if text.endswith("」"):
+            return text[:text.find("「")]
+        if text.endswith("）"):
+            return text[:text.find("（")]
+        if text.endswith(")"):
+            return text[:text.find("(")]
+        if text.endswith("】"):
+            return text[:text.find("【")]
+        if text.endswith("』"):
+            return text[:text.find("『")]
+        if text.endswith("]"):
+            return text[:text.find("[")]
+        if text.endswith("］"):
+            return text[:text.find("[")]
+        if text.endswith("〉"):
+            return text[:text.find("〈")]
+        if text.endswith("》"):
+            return text[:text.find("《")]
+        return text
+
+
+    ######################################################
+    #  タイトル中のスペースを「。」に置き換える
+    ######################################################
+    def space_change(self, text):
+        ret = ""
+        ct = 0
+        for ch in text:
+            if (ch == " " or ch == "　"):
+                if ct > 0 and ct < len(text) - 1 and (not text[ct - 1].isascii() or not text[ct + 1].isascii()):
+                  ret = ret + "。"
+                else:
+                  ret = ret + ch
+            elif ch == "＝":
+                ret = ret + "。"
+            else:
+                ret = ret + ch
+            ct = ct + 1
+        return ret
+
 
     ##########################################################################################################################################
     # ニュースのカテゴリのチェック
@@ -36,6 +80,9 @@ class CategoryClassification:
         l_ct = 0
         ret = ""
         for line in text.splitlines():
+#            if "。" not in line and (" " in line or "　" in line):
+            line = self.space_change(line)
+            line = self.punct_cut(line)
             l_ct = l_ct + 1
             ret_p = self.category_get(line)
             if ret_p:

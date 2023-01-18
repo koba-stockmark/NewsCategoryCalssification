@@ -161,6 +161,9 @@ class CategoryRule:
     column_dic = [
         "コラム", "知る", "まとめる", "ご覧", "問う"
     ]
+    modality_column_dic = [
+        "<疑問>"
+    ]
     # O-V 規則
     o_v_column_dic = {"obj": {"経歴"},
                       "verb": {"持つ"}
@@ -242,20 +245,25 @@ class CategoryRule:
 
     # レポート
     report_dic = [
-        "レポート", ""
+        "レポート", "試乗記", "体験記"
     ]
     # O-V 規則
     o_v_report_dic = {"obj": {"レポート"},
                       "verb": {"発表", "報告", "リリース"}
                       }
 
+    # 技術動向
+    gijyutudoukou_dic = [
+        "存在感", "主流", "注目"
+    ]
+
     # 市場動向
     shikyou_dic = [
         "市況", "市場動向"
     ]
     # O-V 規則
-    o_v_shikyou_dic = {"obj": {"販売", "売上"},
-                       "verb": {"好調", "不調", "いい", "悪い"}
+    o_v_shikyou_dic = {"obj": {"販売", "売上", "シェア"},
+                       "verb": {"好調", "不調", "いい", "悪い", "下落", "上昇"}
                        }
     o_v_shikyou2_dic = {"obj": {"人気", "好調", "不調"},
                         "verb": {"要因", "原因", "理由", "わけ"}
@@ -290,7 +298,7 @@ class CategoryRule:
 
     # 技術開発
     kaihatsu_dic = [
-        "開発", "設計", "確立", "変換"
+        "開発", "設計", "確立", "変換", "小型化", "大型化", "向上", "改善", "実現", "成功"
     ]
 
     # 研究開発
@@ -300,7 +308,7 @@ class CategoryRule:
 
     # 実験
     jikken_dic = [
-        "実験", "実証実験"
+        "実験", "実証実験", "試作"
     ]
 
     # 業績
@@ -317,7 +325,7 @@ class CategoryRule:
 
     # 経営戦略
     senryaku_dic = [
-        "経営戦略", ""
+        "経営戦略", "戦略"
     ]
     # O-V 規則
     o_v_senryaku_dic = {"obj": {"事業", "人員", "工数", "経費", "予算", "リソース"},
@@ -386,7 +394,7 @@ class CategoryRule:
 
     # サービス開始
     service_dic = [
-        "サービス開始", "稼働", "参入"
+        "サービス開始", "稼働", "参入", "導入確定"
     ]
     # O-V 規則
     o_v_service_dic = {"obj": {"サービス", "提供", "サイト", "ホームページ", "ＨＰ", "取扱", "販売", "事業", "場"},
@@ -404,7 +412,7 @@ class CategoryRule:
 
     # 商品化
     shouhin_dic = [
-        "商品化", "製品化", "商用展開", "市場投入", "販売", "登録"
+        "商品化", "製品化", "商用展開", "市場投入", "販売", "発売", "登録", "新型発表", "製品発表", "商品発表", "登場"
     ]
     # O-V 規則
     o_v_shouhin_dic = {"obj": {"市場", "製品", "商品", "サービス", "新型", "最新"},
@@ -565,6 +573,7 @@ class CategoryRule:
         {"label": "<セミナー>", "words": seminar_dic},
         {"label": "<セミナー>", "rule": o_v_seminar_dic},
         {"label": "<コラム>", "words": column_dic},
+        {"label": "<コラム>", "modality": modality_column_dic},
         {"label": "<コラム>", "rule": o_v_column_dic},
         {"label": "<コラム>", "rule": o_v_column2_dic},
         {"label": "<説明>", "words": setusmei_dic},
@@ -588,6 +597,7 @@ class CategoryRule:
         {"label": "<市場動向>", "words": shikyou_dic},
         {"label": "<市場動向>", "rule": o_v_shikyou_dic},
         {"label": "<市場動向>", "rule": o_v_shikyou2_dic},
+        {"label": "<技術動向>", "words": gijyutudoukou_dic},
         {"label": "<政府・行革>", "words": gyoukaku_dic},
         {"label": "<政府・行革>", "rule": o_v_gyoukaku_dic},
         {"label": "<政府・認可>", "words": ninnka_dic},
