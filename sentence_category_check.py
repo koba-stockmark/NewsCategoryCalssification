@@ -13,13 +13,17 @@ class SentenceCategoryCheker:
     def rule_check(self, verb, rule):
         if verb in rule:
             return True
+        verb = "[" + verb + "]"
+        if verb in rule:
+            return True
         return False
 
     # 後方一致での辞書とのマッチング
     def rule_check2(self, verb, rule):
         for check in rule:
-            if check == verb[-len(check):]:
-                return True
+            if check and check[0] != "[":
+                if check == verb[-len(check):]:
+                    return True
         return False
 
     def category_chek(self, start, end, modality_w, sub_start, sub_end, obj_start, obj_end, pre_category, p_rule, *doc):
@@ -139,7 +143,15 @@ class SentenceCategoryCheker:
                                 ret = ret + ',' + rule["label"]
                             else:
                                 ret = ret + rule["label"]
-
+        # NG ワードによるカテゴリ修正
+        for rule in p_rule.phrase_rule:
+            if "ng_words" in rule:
+                if self.rule_check(verb_word, rule["ng_words"]):
+                    if rule["label"] in ret:
+                        if "," in ret:
+                            ret.replace(rule["label"], "")
+                        else:
+                            return ""
         return ret.rstrip(',')
 
     ##########################################################################################################################################
