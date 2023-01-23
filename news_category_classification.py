@@ -32,23 +32,23 @@ class CategoryClassification:
     ######################################################
     def punct_cut(self, text):
         if text.endswith("」"):
-            return text[:text.find("「")]
+            return text[:text.rfind("「")]
         if text.endswith("）"):
-            return text[:text.find("（")]
+            return text[:text.rfind("（")]
         if text.endswith(")"):
-            return text[:text.find("(")]
+            return text[:text.rfind("(")]
         if text.endswith("】"):
-            return text[:text.find("【")]
+            return text[:text.rfind("【")]
         if text.endswith("』"):
-            return text[:text.find("『")]
+            return text[:text.rfind("『")]
         if text.endswith("]"):
-            return text[:text.find("[")]
+            return text[:text.rfind("[")]
         if text.endswith("］"):
-            return text[:text.find("[")]
+            return text[:text.rfind("[")]
         if text.endswith("〉"):
-            return text[:text.find("〈")]
+            return text[:text.rfind("〈")]
         if text.endswith("》"):
-            return text[:text.find("《")]
+            return text[:text.rfind("《")]
         return text
 
 
@@ -64,8 +64,10 @@ class CategoryClassification:
                   ret = ret + "。"
                 else:
                   ret = ret + ch
-            elif ch == "＝":
+            elif ch == "＝" or ch == "―" or ch == "-" or ch == "：" or ch == "｜":
                 ret = ret + "。"
+            elif ch == "？" or ch == "?":
+                ret = ret + ch + "。。"
             else:
                 ret = ret + ch
             ct = ct + 1

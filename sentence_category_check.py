@@ -30,7 +30,7 @@ class SentenceCategoryCheker:
         ret = ''
         new_end = end
         for c_pt in range(start, end):      # 述部の語幹だけを切り出す
-            if doc[c_pt].pos_ == 'ADP' and ((doc[c_pt].lemma_ != 'を' and doc[c_pt].lemma_ != 'の' and doc[c_pt].lemma_ != 'が') or (doc[c_pt].lemma_ == 'を' and len(doc) > c_pt + 1 and doc[c_pt + 1].norm_ == '為る')):
+            if doc[c_pt].pos_ == 'ADP' and ((doc[c_pt].lemma_ != 'を' and doc[c_pt].lemma_ != 'の' and doc[c_pt].lemma_ != 'が' and doc[c_pt].lemma_ != 'も' and doc[c_pt].lemma_ != 'のみ' and doc[c_pt].lemma_ != 'に') or (doc[c_pt].lemma_ == 'を' and len(doc) > c_pt + 1 and doc[c_pt + 1].norm_ == '為る')):
                 new_end = c_pt - 1
                 break
         verb_word = chunker.compaound(start, new_end, *doc)
@@ -257,7 +257,7 @@ class SentenceCategoryCheker:
                         continue
                     if not re_arg["case"]:
                         continue
-                    if "副詞的" not in re_arg["case"] and "連体修飾" not in re_arg["case"]:
+                    if "副詞的" not in re_arg["case"] and "連体修飾" not in re_arg["case"] and "連接" not in re_arg["case"]:
                         no_argument = False
                     if re_arg["subject"] and doc[re_arg["lemma_end"]].lemma_ != 'こと' and re_arg["case"] != 'が' and re_arg["case"] != 'も':  # 他の項がある主語からフェーズ生成はない
                         new_end = chek_predicate["lemma_end"]
