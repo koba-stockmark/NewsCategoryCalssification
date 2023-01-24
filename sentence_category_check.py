@@ -9,6 +9,15 @@ class SentenceCategoryCheker:
         関数`__init__`はクラスをインスタンス化した時に実行されます。
         """
 
+    # カテゴリのマージ
+    def category_merge(self, category, rule):
+        for check_rule in rule.merge_rule:
+            if check_rule[0] in category and check_rule[1] in category:
+                category = category.replace(check_rule[1], "")
+        category = category.replace(",,", ",")
+        category = category.strip(",")
+        return category
+
     # 完全一致での辞書とのマッチング
     def rule_check(self, verb, rule):
         if verb in rule:
@@ -373,6 +382,7 @@ class SentenceCategoryCheker:
                                 single = single + "," + check_category
                             else:
                                 single = check_category
+        single = self.category_merge(single, rule)
         return single
 
     ##########################################################################################################################################

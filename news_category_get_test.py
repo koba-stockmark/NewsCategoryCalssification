@@ -13,7 +13,7 @@ articles6 = json.load(open('category_ng.json'))
 
 out_file = open('category_result.tsv', 'w')
 
-debug_f = True
+debug_f = False
 
 for doc in articles6:
     for sep_doc in doc.splitlines():
