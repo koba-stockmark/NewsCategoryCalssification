@@ -62,10 +62,12 @@ class CategoryClassification:
                   ret = ret + "。"
                 else:
                   ret = ret + ch
-            elif ch == "＝" or ch == "―" or ch == "-" or ch == "：" or ch == "｜":
+            elif ch == "＝" or ch == "―" or ch == "-" or ch == "－" or ch == "：" or ch == "｜" or ch == "…" :
                 ret = ret + "。"
-            elif ch == "？" or ch == "?":
+            elif ch == "？" or ch == "?" or ((ch == "】" or ch == "【") and not text.endswith("】")):
                 ret = ret + ch + "。。"
+            elif ch == "、" and text[ct - 1] == "へ":
+                ret = ret + "。"
             else:
                 ret = ret + ch
             ct = ct + 1

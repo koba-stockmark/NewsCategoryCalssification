@@ -31,8 +31,17 @@ class SentenceCategoryCheker:
     def rule_check2(self, verb, rule):
         for check in rule:
             if check and check[0] != "[":
-                if check == verb[-len(check):]:
-                    return True
+                if "*" in check:
+                    post_w = check[check.find("*") + 1:]
+                    if post_w:
+                        che = verb[0:-len(post_w)]
+                    else:
+                        che = verb
+                    if (not post_w or post_w == verb[-len(post_w):]) and check[:check.find("*")] in che:
+                        return True
+                else:
+                    if check == verb[-len(check):]:
+                        return True
         return False
 
     def category_chek(self, start, end, modality_w, sub_start, sub_end, obj_start, obj_end, pre_category, p_rule, *doc):
@@ -43,7 +52,7 @@ class SentenceCategoryCheker:
         ret = ''
         new_end = end
         for c_pt in range(start, end):      # 述部の語幹だけを切り出す
-            if doc[c_pt].pos_ == 'ADP' and ((doc[c_pt].lemma_ != 'を' and doc[c_pt].lemma_ != 'の' and doc[c_pt].lemma_ != 'が' and doc[c_pt].lemma_ != 'も' and doc[c_pt].lemma_ != 'のみ' and doc[c_pt].lemma_ != 'に') or (doc[c_pt].lemma_ == 'を' and len(doc) > c_pt + 1 and doc[c_pt + 1].norm_ == '為る')):
+            if doc[c_pt].pos_ == 'ADP' and ((doc[c_pt].lemma_ != 'を' and doc[c_pt].lemma_ != 'の' and doc[c_pt].lemma_ != 'が' and doc[c_pt].lemma_ != 'も' and doc[c_pt].lemma_ != 'のみ' and doc[c_pt].lemma_ != 'に' and doc[c_pt].lemma_ != 'など') or (doc[c_pt].lemma_ == 'を' and len(doc) > c_pt + 1 and doc[c_pt + 1].norm_ == '為る')):
                 new_end = c_pt - 1
                 break
         verb_word = chunker.compaound(start, new_end, *doc)
@@ -296,7 +305,8 @@ class SentenceCategoryCheker:
                             if check["subject"] and check["predicate_id"] == re_arg["predicate_id"]:
                                 no_subject = False
                                 break
-                        if no_subject:
+#                        if no_subject:
+                        if no_subject and doc[chek_predicate["lemma_end"]].pos_ != "NOUN": #　体言度目は例外に　男女1,000人にメンズコスメ「スキンケア」に関する調査／男性で日焼け対策を実施している人は約6割。
                             continue
                     if koto_f:    # 〜こと　の項があった場合は優先して　「を格」以外は拡張しない
                         continue
