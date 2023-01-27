@@ -63,12 +63,12 @@ class SentenceCategoryCheker:
                 if "rule" in rule:
                     verb_ok = False
                     for check_verb in rule["rule"]["verb"]:
-                        if check_verb and check_verb in verb_word:
+                        if check_verb and (check_verb in verb_word or check_verb in "[" + verb_word + "]"):
                             verb_ok = True
                             break
                     if verb_ok and "obj" in rule["rule"]:
                         for check_obj in rule["rule"]["obj"]:
-                            if check_obj and check_obj in obj_word:
+                            if check_obj and (check_obj in obj_word or check_obj in "[" + obj_word + "]"):
                                 if ret:
                                     ret = ret + ',' + rule["label"]
                                 else:
@@ -88,12 +88,12 @@ class SentenceCategoryCheker:
                 if "rule" in rule:
                     verb_ok = False
                     for check_verb in rule["rule"]["verb"]:
-                        if check_verb and check_verb in sub_verb_word:
+                        if check_verb and (check_verb in sub_verb_word or check_verb in "[" + sub_verb_word + "]"):
                             verb_ok = True
                             break
                     if verb_ok:
                         for check_obj in rule["rule"]["obj"]:
-                            if check_obj and check_obj in verb_word:
+                            if check_obj and (check_obj in verb_word or check_obj in "[" + verb_word + "]"):
                                 if ret:
                                     ret = ret + ',' + rule["label"]
                                 else:
