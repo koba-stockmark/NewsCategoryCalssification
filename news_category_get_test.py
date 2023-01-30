@@ -13,12 +13,13 @@ articles6 = json.load(open('category_ng.json'))
 articles7 = json.load(open('category_ng2.json'))
 articles8 = json.load(open('all_title.json'))
 articles9 = json.load(open('cat_err.json'))
+articles10 = json.load(open('all_ng.json'))
 
 out_file = open('category_result.tsv', 'w')
 
 debug_f = True
 
-for doc in articles9:
+for doc in articles10:
     for sep_doc in doc.splitlines():
         category_list = model.news_category_classification(sep_doc)  # カテゴリの候補の抽出
         print(category_list)

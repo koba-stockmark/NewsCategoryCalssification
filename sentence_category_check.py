@@ -87,18 +87,19 @@ class SentenceCategoryCheker:
             for rule in p_rule.phrase_rule:
                 if "rule" in rule:
                     verb_ok = False
-                    for check_verb in rule["rule"]["verb"]:
-                        if check_verb and (check_verb in sub_verb_word or check_verb in "[" + sub_verb_word + "]"):
-                            verb_ok = True
-                            break
-                    if verb_ok:
-                        for check_obj in rule["rule"]["obj"]:
-                            if check_obj and (check_obj in verb_word or check_obj in "[" + verb_word + "]"):
-                                if ret:
-                                    ret = ret + ',' + rule["label"]
-                                else:
-                                    ret = ret + rule["label"]
+                    if "verb" in rule["rule"]:
+                        for check_verb in rule["rule"]["verb"]:
+                            if check_verb and (check_verb in sub_verb_word or check_verb in "[" + sub_verb_word + "]"):
+                                verb_ok = True
                                 break
+                        if verb_ok and "obj" in rule["rule"]:
+                            for check_obj in rule["rule"]["obj"]:
+                                if check_obj and (check_obj in verb_word or check_obj in "[" + verb_word + "]"):
+                                    if ret:
+                                        ret = ret + ',' + rule["label"]
+                                    else:
+                                        ret = ret + rule["label"]
+                                    break
 
         # 補助表現以外のメイン術部
         if verb_word not in s_v_dic.sub_verb_dic or verb_word in s_v_dic.special_sub_verb_dic:
@@ -306,7 +307,10 @@ class SentenceCategoryCheker:
                                 no_subject = False
                                 break
 #                        if no_subject:
-                        if no_subject and doc[chek_predicate["lemma_end"]].pos_ != "NOUN": #　体言度目は例外に　男女1,000人にメンズコスメ「スキンケア」に関する調査／男性で日焼け対策を実施している人は約6割。
+                        if no_subject and doc[chek_predicate["lemma_end"]].pos_ != "NOUN" and ("modality" not in chek_predicate or
+                                           ("<疑問>" not in chek_predicate["modality"] and "<勧誘>" not in chek_predicate["modality"] and
+                                            "<容易>" not in chek_predicate["modality"] and "<限定>" not in chek_predicate["modality"] and
+                                            "<意思・願望>" not in chek_predicate["modality"])): #　体言度目は例外に　男女1,000人にメンズコスメ「スキンケア」に関する調査／男性で日焼け対策を実施している人は約6割。
                             continue
                     if koto_f:    # 〜こと　の項があった場合は優先して　「を格」以外は拡張しない
                         continue
