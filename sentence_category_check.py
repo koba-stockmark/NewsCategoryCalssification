@@ -9,6 +9,7 @@ class SentenceCategoryCheker:
         関数`__init__`はクラスをインスタンス化した時に実行されます。
         """
 
+    lasf_f = False
     # カテゴリのマージ
     def category_merge(self, category, rule):
         for check_rule in rule.merge_rule:
@@ -22,9 +23,13 @@ class SentenceCategoryCheker:
     def rule_check(self, verb, rule):
         if verb in rule:
             return True
-        verb = "[" + verb + "]"
-        if verb in rule:
+        verb2 = "[" + verb + "]"
+        if verb2 in rule:
             return True
+        if self.lasf_f:
+            verb2 = verb + "。"
+            if verb2 in rule:
+                return True
         return False
 
     # 後方一致での辞書とのマッチング
@@ -44,15 +49,22 @@ class SentenceCategoryCheker:
                         return True
         return False
 
+    ok_case = ["を", "の", "へ", "と", "で", "が", "も", "のみ", "に", "など", "や"]
     def category_chek(self, start, end, modality_w, sub_start, sub_end, obj_start, obj_end, pre_category, p_rule, *doc):
         if start == -1 or end == -1:
             return ""
         chunker = ChunkExtractor()
         s_v_dic = SubVerbDic()
         ret = ''
+        self.lasf_f = False
+        if (len(doc) == end + 1
+                or (len(doc) > end + 1 and doc[end + 1].lemma_ == "。")
+                or (len(doc) == end + 2 and doc[end + 1].pos_ == "SCONJ")
+                or (len(doc) > end + 2 and doc[end + 1].pos_ == "SCONJ" and doc[end + 2].lemma_ == "。")):      # タイトルの文末の「向けて」　対応
+            self.lasf_f = True
         new_end = end
         for c_pt in range(start, end):      # 述部の語幹だけを切り出す
-            if doc[c_pt].pos_ == 'ADP' and ((doc[c_pt].lemma_ != 'を' and doc[c_pt].lemma_ != 'の' and doc[c_pt].lemma_ != 'が' and doc[c_pt].lemma_ != 'も' and doc[c_pt].lemma_ != 'のみ' and doc[c_pt].lemma_ != 'に' and doc[c_pt].lemma_ != 'など') or (doc[c_pt].lemma_ == 'を' and len(doc) > c_pt + 1 and doc[c_pt + 1].norm_ == '為る')):
+            if doc[c_pt].pos_ == 'ADP' and (doc[c_pt].lemma_ not in self.ok_case or (doc[c_pt].lemma_ == 'を' and len(doc) > c_pt + 1 and doc[c_pt + 1].norm_ == '為る')):
                 new_end = c_pt - 1
                 break
         verb_word = chunker.compaound(start, new_end, *doc)
@@ -63,7 +75,7 @@ class SentenceCategoryCheker:
                 if "rule" in rule:
                     verb_ok = False
                     for check_verb in rule["rule"]["verb"]:
-                        if check_verb and (check_verb in verb_word or check_verb in "[" + verb_word + "]"):
+                        if check_verb and (check_verb in verb_word or check_verb in "[" + verb_word + "]" or check_verb == ".*"):
                             verb_ok = True
                             break
                     if verb_ok and "obj" in rule["rule"]:
@@ -154,6 +166,7 @@ class SentenceCategoryCheker:
                             ret = ret + rule["label"]
         # モダリティによるチェック
         if modality_w:
+            # シングルモダリティ
             for che_mmodality_w in modality_w:
                 for rule in p_rule.phrase_rule:
                     if "modality" in rule:
@@ -162,6 +175,23 @@ class SentenceCategoryCheker:
                                 ret = ret + ',' + rule["label"]
                             else:
                                 ret = ret + rule["label"]
+            # マルチモダリティ
+            for rule in p_rule.phrase_rule:
+                multi_find = False
+                if "modality" in rule:
+                    for mod in rule["modality"]:
+                        if "+" in mod:
+                            multi_find = True
+                            for d_mod in mod.split("+"):
+                                if d_mod not in modality_w:
+                                    multi_find = False
+                                    break
+                    if multi_find:
+                        if ret:
+                            ret = ret + ',' + rule["label"]
+                        else:
+                            ret = ret + rule["label"]
+
         # NG ワードによるカテゴリ修正
         for rule in p_rule.phrase_rule:
             if "ng_words" in rule:
@@ -320,7 +350,7 @@ class SentenceCategoryCheker:
                     if check_case not in rule.category_analyze_case:
                         if "です" not in chek_predicate["lemma"]:
                             continue
-                    if "rentai_subject" in re_arg:      # 連体修飾からの主語は対象外
+                    if "rentai_subject" in re_arg and re_arg["lemma_end"] + 1 < len(doc) and doc[re_arg["lemma_end"] + 1].lemma_ != "。":      # 連体修飾からの主語は対象外
                         continue
                     if not category:
                         check_end = chek_predicate["lemma_end"]
@@ -396,6 +426,7 @@ class SentenceCategoryCheker:
                                 single = single + "," + check_category
                             else:
                                 single = check_category
+                    chek_predicate["category"] = single
         single = self.category_merge(single, rule)
         return single
 

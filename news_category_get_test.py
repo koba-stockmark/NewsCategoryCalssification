@@ -14,12 +14,18 @@ articles7 = json.load(open('category_ng2.json'))
 articles8 = json.load(open('all_title.json'))
 articles9 = json.load(open('cat_err.json'))
 articles10 = json.load(open('all_ng.json'))
+articles11 = json.load(open('all_ng2.json'))
+articles12 = json.load(open('all_ng3.json'))
+articles13 = json.load(open('err_hiro.json'))
+articles14 = json.load(open('oki_title.json'))
+articles15 = json.load(open('tdk_title.json'))
+articles16 = json.load(open('TDK_OKI_ng.json'))
 
 out_file = open('category_result.tsv', 'w')
 
 debug_f = True
 
-for doc in articles10:
+for doc in articles15:
     for sep_doc in doc.splitlines():
         category_list = model.news_category_classification(sep_doc)  # カテゴリの候補の抽出
         print(category_list)
