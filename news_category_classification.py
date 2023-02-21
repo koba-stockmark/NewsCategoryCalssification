@@ -72,7 +72,7 @@ class CategoryClassification:
                   ret = ret + "。" + ch
             elif ch == "？" or ch == "?" or ((ch == "】" or ch == "【") and not text.endswith("】")):   # ？を正しく解析させるための処理
                 ret = ret + ch + "。。"
-            elif ch == "、" and text[ct - 1] == "へ":     # 「...〇〇へ、〇〇...」　という形の特殊タイトル処理
+            elif ch == "、" and (text[ct - 1] == "へ" or (text[ct - 1] == "か" and (text[ct - 2] != "ほ" and text[ct - 2] != "へ"))):     # 「...〇〇へ、〇〇...」　という形の特殊タイトル処理
                 ret = ret + "。"
             elif len(text) > ct + 2 and ch == "そ" and text[ct + 1] == "の" and (text[ct + 2].isdigit() or (text[ct + 2] >= "０" and text[ct + 2] <= "９")):  # その２
                 ret = ret + "。" + ch
