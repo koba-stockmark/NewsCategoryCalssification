@@ -1,4 +1,5 @@
 import json
+import csv
 import re
 from news_category_classification import CategoryClassification
 
@@ -22,12 +23,13 @@ articles17 = json.load(open('PoC_OKI_TDK.json'))
 articles18 = json.load(open('PoC_OKI.json'))
 articles19 = json.load(open('PoC_TDK.json'))
 articles20 = json.load(open('New_OKI_TDK_ng.json'))
+articles21 = json.load(open('harabe_tdk.json'))
 
 out_file = open('category_result.tsv', 'w')
 
-debug_f = False
+debug_f = True
 
-for doc in articles18:
+for doc in articles21:
     for sep_doc in doc.splitlines():
         category_list = model.news_category_classification(sep_doc)  # カテゴリの候補の抽出
         print(category_list)
