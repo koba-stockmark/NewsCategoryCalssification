@@ -15,8 +15,9 @@ for line in articles:
     if debug_f:
         out_file.writerow(category_list)
     else:
-        line.append(category_list.split("\t")[0])
-        line.append(category_list.split("\t")[1])
+        if "\t" in category_list:
+            line.append(category_list.split("\t")[0])
+            line.append(category_list.split("\t")[1])
         out_file.writerow(line)
     print("--------------------\n")
     if debug_f:

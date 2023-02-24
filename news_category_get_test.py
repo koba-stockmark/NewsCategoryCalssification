@@ -24,12 +24,13 @@ articles18 = json.load(open('PoC_OKI.json'))
 articles19 = json.load(open('PoC_TDK.json'))
 articles20 = json.load(open('New_OKI_TDK_ng.json'))
 articles21 = json.load(open('harabe_tdk.json'))
+articles22 = json.load(open('sakamoto_err.json'))
 
 out_file = open('category_result.tsv', 'w')
 
 debug_f = True
 
-for doc in articles21:
+for doc in articles22:
     for sep_doc in doc.splitlines():
         category_list = model.news_category_classification(sep_doc)  # カテゴリの候補の抽出
         print(category_list)

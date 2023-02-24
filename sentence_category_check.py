@@ -272,7 +272,7 @@ class SentenceCategoryCheker:
                                 if check_verb and check_verb in sub_verb:
                                     verb_ok = True
                                     break
-                            if verb_ok:
+                            if verb_ok and "obj" in rule["rule"]:
                                 for check_obj in rule["rule"]["obj"]:
                                     if check_obj and check_obj in verb_word:
                                         return True
