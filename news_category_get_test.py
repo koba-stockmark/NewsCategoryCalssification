@@ -28,7 +28,7 @@ articles22 = json.load(open('data/sakamoto_err.json'))
 
 out_file = open('data/category_result.tsv', 'w')
 
-debug_f = False
+debug_f = True
 
 for doc in articles22:
     for sep_doc in doc.splitlines():
