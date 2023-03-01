@@ -63,8 +63,14 @@ class SentenceCategoryCheker:
                 or (len(doc) > end + 2 and doc[end + 1].pos_ == "SCONJ" and doc[end + 2].lemma_ == "。")):      # タイトルの文末の「向けて」　対応
             self.lasf_f = True
         new_end = end
-        for c_pt in range(start, end):      # 述部の語幹だけを切り出す
+        for c_pt in range(start, end + 1):      # 述部の語幹だけを切り出す
             if doc[c_pt].pos_ == 'ADP' and (doc[c_pt].lemma_ not in self.ok_case or (doc[c_pt].lemma_ == 'を' and len(doc) > c_pt + 1 and doc[c_pt + 1].norm_ == '為る')):
+                new_end = c_pt - 1
+                break
+            if doc[c_pt].lemma_ == "だ":
+                new_end = c_pt - 1
+                break
+            if doc[c_pt].pos_ == "AUX" or doc[c_pt].pos_ == "SCONJ":
                 new_end = c_pt - 1
                 break
         verb_word = chunker.compaound(start, new_end, *doc)
@@ -140,8 +146,9 @@ class SentenceCategoryCheker:
             # 項全体として重複をチェック
             if ret2:
                 for ret3 in ret2.split(','):
-                    if ret and ret3 not in ret:
-                        ret = ret + ',' + ret3
+                    if ret:
+                        if ret3 not in ret:
+                            ret = ret + ',' + ret3
                     else:
                         ret = ret3
             # 項の部分要素を重複をチェック
@@ -151,8 +158,9 @@ class SentenceCategoryCheker:
                 ret2 = self.category_chek(pt, pt, "", -1, -1, -1, -1, '', p_rule, *doc)
                 if ret2:
                     for ret3 in ret2.split(','):
-                        if ret and ret3 not in ret:
-                            ret = ret + ',' + ret3
+                        if ret:
+                            if ret3 not in ret:
+                                ret = ret + ',' + ret3
                         else:
                             ret = ret3
         # 補助表現がメイン術部のとき
@@ -326,7 +334,7 @@ class SentenceCategoryCheker:
                             if doc[c_pt].pos_ == 'ADP' and doc[c_pt].lemma_ != 'を':
                                 new_end = c_pt - 1
                                 break
-                        verb_word = chunker.compaound(chek_predicate["lemma_start"], new_end, *doc)
+#                        verb_word = chunker.compaound(chek_predicate["lemma_start"], new_end, *doc)
 #                        if p_rule == categoryRule:
 #                            if verb_word in s_v_dic.sub_verb_dic:
 #                                continue
