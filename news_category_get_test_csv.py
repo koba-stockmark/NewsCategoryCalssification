@@ -3,9 +3,9 @@ from news_category_classification import CategoryClassification
 
 model = CategoryClassification()    # CategoryClassificationのクラスのインスタンス化
 
-articles = csv.reader(open("2023-02-15(UTC) - 2023-02-22の記事マスタ - bq-results-20230222-064642-1677048559149.csv"))
+articles = csv.reader(open("data/2023-02-15(UTC) - 2023-02-22の記事マスタ - bq-results-20230222-064642-1677048559149.csv"))
 
-out_file = csv.writer(open('category_result.csv', 'w'))
+out_file = csv.writer(open('data/category_result.csv', 'w'))
 
 debug_f = False
 
