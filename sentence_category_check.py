@@ -1,6 +1,11 @@
+import sys
+
+sys.path.append('../PredicateStructuring')
+
 from chunker import ChunkExtractor
 from sub_verb_dic import SubVerbDic
 from category_rule_dic import CategoryRule
+
 
 class SentenceCategoryCheker:
 

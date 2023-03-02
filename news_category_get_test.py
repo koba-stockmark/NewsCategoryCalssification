@@ -30,7 +30,7 @@ out_file = open('data/category_result.tsv', 'w')
 
 debug_f = False
 
-for doc in articles20:
+for doc in articles21:
     for sep_doc in doc.splitlines():
         category_list = model.news_category_classification(sep_doc)  # カテゴリの候補の抽出
         if debug_f:
