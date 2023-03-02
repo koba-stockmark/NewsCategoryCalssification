@@ -20,7 +20,7 @@ SpaCy
       + タイトル特有の体言止めや特殊記号に対応するためnews_category_classification.py内で変換をかけている。
       + 必要に応じて変換処理を追加してください。
     + リード文
-      + 改行コード（\n）により文を分割。５文以上入力しても最初の５文しか解析の対象にならない。
+      + 改行コード（\n）により文を分割。複数文入力可能だが、５文以上入力しても最初の５文しか解析の対象にならない。
 
 ## 出力
 
@@ -169,8 +169,7 @@ SpaCy
 
 ## 評価データ
 
-+ solution_sentnece.txt (5000文)
-+ government_news.txt (政府活動文　1066文)
++ 別途用意
 
 ## ルール・辞書
 
@@ -238,11 +237,11 @@ debugモードのときは解析結果のログ(tsv)が出力となる。
 
 ### ライブラリ
 #### カテゴリ判別関係
-+ news_category_classification.py (タイトルの前処理をしてカテゴリ解析を呼ぶ)
++ news_category_classification.py (タイトルの前処理をしてカテゴリ解析を呼ぶ、メインプログラム)
 + sentence_category_get.py (テキストを述語項構造に変換しカテゴリを付与する)
-+ sentence_category_chek.py (カテゴリルール辞書の参照とマッチング)
++ sentence_category_chek.py (述語項構造解析結果をカテゴリルール辞書を用いて検証する)
 #### 述語項構造解析関係
-+ pas_analysis.py (述語項構造の作成)
++ pas_analysis.py (形態素解析を呼び述語項構造の作成を行う)
 + predicate_get.py (述部の判断と基本術部の獲得)
 + predicate_phrase_analysis.py　（基本述部の解析。結合するとルールIDも返る）
 + predicate_split.py　（主述部と補助述部の分離処理）
