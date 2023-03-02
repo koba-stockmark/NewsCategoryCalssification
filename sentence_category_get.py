@@ -26,8 +26,6 @@ class SentenceCategoryGet:
         self.data_dump_and_save2 = d_d_s.data_dump_and_save2
         self.data_dump_and_save3 = d_d_s.data_dump_and_save3
         self.text_treace = d_d_s.text_treace
-        c2p = Category2Pest()
-        self.category2pest =c2p.category2pest
 
     """
     文を解析してカテゴリの取得
@@ -35,7 +33,7 @@ class SentenceCategoryGet:
 
     def category_get(self, text):
 
-        debug = True  # デバッグ用フラグ
+        debug = False  # デバッグ用フラグ
         ret = ''
         ##########################################################################################################################################
         # 形態素解析
@@ -57,8 +55,6 @@ class SentenceCategoryGet:
         #    主述部のカテゴリチェック
         ##########################################################################################################################################
         category = self.sentence_category_check(predicate, argument, *doc)
-        pest = self.category2pest(category)
-        category = category + "\t" + pest
         # デバッグ表示用解析データ
         if debug:
             ret = ret + self.data_dump_and_save2(text, argument, predicate)

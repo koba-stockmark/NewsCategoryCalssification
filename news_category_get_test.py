@@ -2,8 +2,10 @@ import json
 import csv
 import re
 from news_category_classification import CategoryClassification
+from category2pest import Category2Pest
 
 model = CategoryClassification()    # CategoryClassificationのクラスのインスタンス化
+c2p = Category2Pest()
 
 articles = json.load(open('data/nikkei.json'))
 articles2 = json.load(open('data/nikkei_5000.json'))
@@ -28,16 +30,18 @@ articles22 = json.load(open('data/sakamoto_err.json'))
 
 out_file = open('data/category_result.tsv', 'w')
 
-debug_f = True
+debug_f = False
 
-for doc in articles22:
+for doc in articles20:
     for sep_doc in doc.splitlines():
         category_list = model.news_category_classification(sep_doc)  # カテゴリの候補の抽出
-        print(category_list)
         if debug_f:
+            print(category_list)
             out_file.write(category_list)
         else:
-            ret = sep_doc + '\t' + category_list + '\n'
+            pest = c2p.category2pest(category_list)
+            print(category_list + "\t" + pest)
+            ret = sep_doc + '\t' + category_list + "\t" + pest + '\n'
             out_file.write(ret)
     print("--------------------\n")
     if debug_f:
