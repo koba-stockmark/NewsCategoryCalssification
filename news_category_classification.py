@@ -1,12 +1,3 @@
-import spacy
-import json
-import copy
-import sys
-
-sys.path.append('../PredicateStructuring')
-
-from chunker import ChunkExtractor
-from data_dump import DataDumpSave
 from sentence_category_get import SentenceCategoryGet
 
 class CategoryClassification:
@@ -17,11 +8,6 @@ class CategoryClassification:
 
     def __init__(self):
 
-        self.nlp = spacy.load('ja_ginza_electra')  # Ginzaのロード　tranceferモデル
-        chnker = ChunkExtractor()
-        self.num_chunk = chnker.num_chunk
-        d_s = DataDumpSave()
-        self.text_treace = d_s.text_treace
         s_c_g = SentenceCategoryGet()
         self.category_get = s_c_g.category_get
 

@@ -1,6 +1,4 @@
 import json
-import csv
-import re
 from news_category_classification import CategoryClassification
 from category2pest import Category2Pest
 

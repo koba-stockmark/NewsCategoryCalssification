@@ -1,12 +1,8 @@
 import spacy
-import sys
-
-sys.path.append('../PredicateStructuring')
 
 from sentence_category_check import SentenceCategoryCheker
 from data_dump import DataDumpSave
 from pas_analysis import PasAnalysis
-from category2pest import Category2Pest
 
 
 class SentenceCategoryGet:
@@ -17,6 +13,7 @@ class SentenceCategoryGet:
         """
 
         self.nlp = spacy.load('ja_ginza_electra')  # Ginzaのロード　tranceferモデル
+#        self.nlp = spacy.load('ja_ginza')  # Ginzaのロード
         pas_model = PasAnalysis()
         self.pas_analysis = pas_model.pas_analysis
         scc_model = SentenceCategoryCheker()
