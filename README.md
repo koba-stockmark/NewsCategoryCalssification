@@ -7,7 +7,7 @@ SpaCy
 + SpaCy(https://megagonlabs.github.io/ginza/)からダウンロード
   + モデルは「ja_ginza_electra」と「ja_ginza」が使える。
     + ja_ginza_electraは制度が高い
-    + ja_ginzaは速度が４倍早い（１）
+    + ja_ginzaは速度が４倍早い
     + sentence_category_get.py 内で切り替え可能
 
 # 入出力
