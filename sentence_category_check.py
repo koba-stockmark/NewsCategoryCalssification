@@ -72,10 +72,13 @@ class SentenceCategoryCheker:
             if doc[c_pt].pos_ == 'ADP' and (doc[c_pt].lemma_ not in self.ok_case or (doc[c_pt].lemma_ == 'を' and len(doc) > c_pt + 1 and doc[c_pt + 1].norm_ == '為る')):
                 new_end = c_pt - 1
                 break
-            if doc[c_pt].lemma_ == "だ":
+            if doc[c_pt].orth_ == "だ":
                 new_end = c_pt - 1
                 break
-            if doc[c_pt].pos_ == "AUX" or doc[c_pt].pos_ == "SCONJ":
+            if doc[c_pt - 1].pos_ == "AUX" and doc[c_pt].pos_ == "SCONJ":
+                new_end = c_pt - 1
+                break
+            if doc[c_pt].pos_ == "AUX" and doc[c_pt + 1].pos_ == "SCONJ":
                 new_end = c_pt - 1
                 break
         verb_word = chunker.compaound(start, new_end, *doc)
@@ -177,6 +180,12 @@ class SentenceCategoryCheker:
                             ret = ret + ',' + rule["label"]
                         else:
                             ret = ret + rule["label"]
+                    elif self.rule_check2(verb_word, rule["words"]):
+                        if ret:
+                            ret = ret + ',' + rule["label"]
+                        else:
+                            ret = ret + rule["label"]
+
         # モダリティによるチェック
         if modality_w:
             # シングルモダリティ
