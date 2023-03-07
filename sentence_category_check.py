@@ -88,6 +88,12 @@ class SentenceCategoryCheker:
             for rule in p_rule.phrase_rule:
                 if "rule" in rule:
                     verb_ok = False
+                    if "ng_verb" in rule["rule"]:
+                        if verb_word in rule["rule"]["ng_verb"]:
+                            break
+                    if "ng_obj" in rule["rule"]:
+                        if obj_word in rule["rule"]["ng_obj"]:
+                            break
                     for check_verb in rule["rule"]["verb"]:
                         if check_verb and (check_verb in verb_word or check_verb in "[" + verb_word + "]" or check_verb == ".*"):
                             verb_ok = True

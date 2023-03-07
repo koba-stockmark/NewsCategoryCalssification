@@ -84,7 +84,7 @@ class CategoryClassification:
             l_ct = l_ct + 1
             ret_p = self.category_get(line)
             if ret_p:
-                ret = ret + ret_p
+                ret = ret + ret_p[0]
             if l_ct > 5:     # 5文以内に何もカテゴリがない場合は　その他
                 if ret:
                     return ret

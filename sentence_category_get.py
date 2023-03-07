@@ -24,39 +24,36 @@ class SentenceCategoryGet:
         self.data_dump_and_save3 = d_d_s.data_dump_and_save3
         self.text_treace = d_d_s.text_treace
 
+        self.debug = False  # デバッグ用フラグ
+
     """
     文を解析してカテゴリの取得
     """
 
     def category_get(self, text):
 
-        debug = True  # デバッグ用フラグ
         ret = ''
         ##########################################################################################################################################
         # 形態素解析
         ##########################################################################################################################################
         doc = self.nlp(text)  # 文章を解析
-        if debug:
+        if self.debug:
             self.text_treace(*doc)
         ##########################################################################################################################################
         # 述語項構造解析
         ##########################################################################################################################################
-        pas_result = self.pas_analysis(debug, text, *doc)
+        pas_result = self.pas_analysis(self.debug, text, *doc)
         argument = pas_result[0]["argument"]
         predicate = pas_result[0]["predicate"]
-        # デバッグ表示用解析データ
-        if debug:
-            ret = ret + pas_result[1]
         # デバッグ表示用解析データ
         ##########################################################################################################################################
         #    主述部のカテゴリチェック
         ##########################################################################################################################################
         category = self.sentence_category_check(predicate, argument, *doc)
         # デバッグ表示用解析データ
-        if debug:
-            ret = ret + self.data_dump_and_save2(text, argument, predicate)
+        if self.debug:
             self.data_dump_and_save3(text, argument, predicate)
-            print(category)
-            return ret
+            ret = ret + self.data_dump_and_save2(text, argument, predicate)
+            return category, ret
         # デバッグ表示用解析データ
-        return category
+        return category, ""

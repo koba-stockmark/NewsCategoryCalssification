@@ -1,9 +1,11 @@
 import json
 from news_category_classification import CategoryClassification
 from category2pest import Category2Pest
+from sentence_category_get import SentenceCategoryGet
 
 model = CategoryClassification()    # CategoryClassificationのクラスのインスタンス化
 c2p = Category2Pest()
+sc = SentenceCategoryGet()
 
 articles = json.load(open('data/nikkei.json'))
 articles2 = json.load(open('data/nikkei_5000.json'))
@@ -28,20 +30,20 @@ articles22 = json.load(open('data/sakamoto_err.json'))
 
 out_file = open('data/category_result.tsv', 'w')
 
-debug_f = False
-
 for doc in articles21:
     for sep_doc in doc.splitlines():
-        category_list = model.news_category_classification(sep_doc)  # カテゴリの候補の抽出
-        if debug_f:
-            print(category_list)
-            out_file.write(category_list)
+        category_list = model.category_get(sep_doc)  # カテゴリの候補の抽出
+        if sc.debug:
+            print(category_list[0])
+            out_file.write(category_list[1])
         else:
-            pest = c2p.category2pest(category_list)
-            print(category_list + "\t" + pest)
-            ret = sep_doc + '\t' + category_list + "\t" + pest + '\n'
+            pest = ""
+            if category_list[0]:
+                pest = c2p.category2pest(category_list[0])
+            print(category_list[0] + "\t" + pest)
+            ret = sep_doc + '\t' + category_list[0] + "\t" + pest + '\n'
             out_file.write(ret)
     print("--------------------\n")
-    if debug_f:
+    if sc.debug:
         out_file.write("----\t----\t----\t----\t----\t----\t----\t----\t----\t----\n")
 out_file.close()
