@@ -10,6 +10,7 @@ sc = SentenceCategoryGet()
 
 file_name = "data/bq_ajinomoto_ja_updated.json"
 file_name = "data/bq_murata_ja_updated.json"
+file_name = "data/CN_ja.json"
 
 articles1 = json.load(open(file_name))
 out_file_name = file_name.split(".")[0] + "_out.json"

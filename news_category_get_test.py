@@ -30,7 +30,7 @@ articles22 = json.load(open('data/sakamoto_err.json'))
 
 out_file = open('data/category_result.tsv', 'w')
 
-for doc in articles21:
+for doc in articles22:
     for sep_doc in doc.splitlines():
         category_list = model.category_get(sep_doc)  # カテゴリの候補の抽出
         if sc.debug:

@@ -39,6 +39,11 @@ class SentenceCategoryCheker:
 
     # 後方一致での辞書とのマッチング
     def rule_check2(self, verb, rule):
+        # ng chek
+        for check in rule:
+            if "ng" in check:
+                if check[3:-1] == verb[-len(check[3:-1]):]:
+                    return False
         for check in rule:
             if check and check[0] != "[":
                 if "*" in check:
