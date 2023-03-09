@@ -54,6 +54,8 @@ class SentenceCategoryCheker:
                         che = verb
                     if (not post_w or post_w == verb[-len(post_w):]) and check[:check.find("*")] in che:
                         return True
+                    elif "*" in post_w and check[:check.find("*")] in che and post_w[:post_w.find("*")] in che:
+                        return True
                 else:
                     if check == verb[-len(check):]:
                         return True
@@ -94,10 +96,20 @@ class SentenceCategoryCheker:
                 if "rule" in rule:
                     verb_ok = False
                     if "ng_verb" in rule["rule"]:
-                        if verb_word in rule["rule"]["ng_verb"]:
+                        ng_f = False
+                        for ch_verb in rule["rule"]["ng_verb"]:
+                            if ch_verb in verb_word:
+                                ng_f = True
+                                break
+                        if ng_f:
                             break
                     if "ng_obj" in rule["rule"]:
-                        if obj_word in rule["rule"]["ng_obj"]:
+                        ng_f = False
+                        for ch_obj in rule["rule"]["ng_obj"]:
+                            if ch_obj in obj_word:
+                                ng_f = True
+                                break
+                        if ng_f:
                             break
                     for check_verb in rule["rule"]["verb"]:
                         if check_verb and (check_verb in verb_word or check_verb in "[" + verb_word + "]" or check_verb == ".*"):
@@ -124,6 +136,22 @@ class SentenceCategoryCheker:
             for rule in p_rule.phrase_rule:
                 if "rule" in rule:
                     verb_ok = False
+                    if "ng_verb" in rule["rule"]:
+                        ng_f = False
+                        for ch_verb in rule["rule"]["ng_verb"]:
+                            if ch_verb in verb_word:
+                                ng_f = True
+                                break
+                        if ng_f:
+                            break
+                    if "ng_obj" in rule["rule"]:
+                        ng_f = False
+                        for ch_obj in rule["rule"]["ng_obj"]:
+                            if ch_obj in obj_word:
+                                ng_f = True
+                                break
+                        if ng_f:
+                            break
                     if "verb" in rule["rule"]:
                         for check_verb in rule["rule"]["verb"]:
                             if check_verb and (check_verb in sub_verb_word or check_verb in "[" + sub_verb_word + "]"):
