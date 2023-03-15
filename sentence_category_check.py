@@ -102,7 +102,7 @@ class SentenceCategoryCheker:
                                 ng_f = True
                                 break
                         if ng_f:
-                            break
+                            continue
                     if "ng_obj" in rule["rule"]:
                         ng_f = False
                         for ch_obj in rule["rule"]["ng_obj"]:
@@ -110,7 +110,7 @@ class SentenceCategoryCheker:
                                 ng_f = True
                                 break
                         if ng_f:
-                            break
+                            continue
                     for check_verb in rule["rule"]["verb"]:
                         if check_verb and (check_verb in verb_word or check_verb in "[" + verb_word + "]" or check_verb == ".*"):
                             verb_ok = True
@@ -123,6 +123,13 @@ class SentenceCategoryCheker:
                                 else:
                                     ret = ret + rule["label"]
                                 break
+                            elif "*" in check_obj:
+                                if self.rule_check2(obj_word, rule["rule"]["obj"]):
+                                    if ret:
+                                        ret = ret + ',' + rule["label"]
+                                    else:
+                                        ret = ret + rule["label"]
+                                    break
                     if verb_ok and "modality" in rule["rule"]:
                         for check_modal in rule["rule"]["modality"]:
                             if check_modal and check_modal in modality_w:
@@ -143,7 +150,7 @@ class SentenceCategoryCheker:
                                 ng_f = True
                                 break
                         if ng_f:
-                            break
+                            continue
                     if "ng_obj" in rule["rule"]:
                         ng_f = False
                         for ch_obj in rule["rule"]["ng_obj"]:
@@ -151,7 +158,7 @@ class SentenceCategoryCheker:
                                 ng_f = True
                                 break
                         if ng_f:
-                            break
+                            continue
                     if "verb" in rule["rule"]:
                         for check_verb in rule["rule"]["verb"]:
                             if check_verb and (check_verb in sub_verb_word or check_verb in "[" + sub_verb_word + "]"):
@@ -187,6 +194,27 @@ class SentenceCategoryCheker:
                                     ret = ret + ',' + rule["label"]
                                 else:
                                     ret = ret + rule["label"]
+        if not ret and verb_word in s_v_dic.sub_verb_dic: # 補助動詞がメイン述部の場合は項の体言止めとして考えてみる
+            # フルマッチ
+            for rule in p_rule.phrase_rule:
+                if "words" in rule:
+                    if self.rule_check(obj_word, rule["words"]):
+                        if rule["label"] not in ret:
+                            if ret:
+                                ret = ret + ',' + rule["label"]
+                            else:
+                                ret = ret + rule["label"]
+            # フルマッチでない場合は後方マッチ
+            if not ret:
+                for rule in p_rule.phrase_rule:
+                    if "words" in rule:
+                        if self.rule_check2(obj_word, rule["words"]):
+                            if rule["label"] not in ret:
+                                if ret:
+                                    ret = ret + ',' + rule["label"]
+                                else:
+                                    ret = ret + rule["label"]
+
         # 目的語からフェーズをチェック
         if verb_word in s_v_dic.sub_verb_dic and verb_word not in s_v_dic.special_sub_verb_dic and obj_start >= 0:
             ret2 = self.category_chek(obj_start, obj_end, "", -1, -1, -1, -1, '', p_rule,  *doc)
@@ -199,6 +227,7 @@ class SentenceCategoryCheker:
                     else:
                         ret = ret3
             # 項の部分要素を重複をチェック
+            #"""
             for pt in range(obj_start, obj_end + 1):
                 if (len(doc) > pt + 1 and (doc[pt + 1].lemma_ == '方' or doc[pt + 1].lemma_ == 'ため')) or (len(doc) > pt + 2 and doc[pt + 1].pos_ == 'AUX' and (doc[pt + 2].lemma_ == '方' or doc[pt + 2].lemma_ == 'ため')):      # 〇〇する方　はフェーズ判断に用いな
                     continue
@@ -210,6 +239,21 @@ class SentenceCategoryCheker:
                                 ret = ret + ',' + ret3
                         else:
                             ret = ret3
+            """
+            if (len(doc) > obj_end + 1 and (doc[obj_end + 1].lemma_ == '方' or doc[obj_end + 1].lemma_ == 'ため')) or (
+                    len(doc) > obj_end + 2 and doc[obj_end + 1].pos_ == 'AUX' and (
+                    doc[obj_end + 2].lemma_ == '方' or doc[obj_end + 2].lemma_ == 'ため')):  # 〇〇する方　はフェーズ判断に用いな
+                pass
+            else:
+                ret2 = self.category_chek(obj_end, obj_end, "", -1, -1, -1, -1, '', p_rule, *doc)
+                if ret2:
+                    for ret3 in ret2.split(','):
+                        if ret:
+                            if ret3 not in ret:
+                                ret = ret + ',' + ret3
+                        else:
+                            ret = ret3
+            """
         # 補助表現がメイン術部のとき
         if not pre_category and not ret and verb_word in s_v_dic.sub_verb_dic:
             for rule in p_rule.phrase_rule:

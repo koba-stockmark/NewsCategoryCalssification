@@ -24,7 +24,7 @@ class SentenceCategoryGet:
         self.data_dump_and_save3 = d_d_s.data_dump_and_save3
         self.text_treace = d_d_s.text_treace
 
-        self.debug = True  # デバッグ用フラグ
+        self.debug = False  # デバッグ用フラグ
 
     """
     文を解析してカテゴリの取得

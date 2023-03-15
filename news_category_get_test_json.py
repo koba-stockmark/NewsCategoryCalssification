@@ -1,16 +1,19 @@
 import json
 from news_category_classification import CategoryClassification
-from category2pest import Category2Pest
 from sentence_category_get import SentenceCategoryGet
+from category2pest import Category2Pest
+from category2tab import Category2Tab
 
 
 model = CategoryClassification()    # CategoryClassificationのクラスのインスタンス化
-c2p = Category2Pest()
 sc = SentenceCategoryGet()
+c2p = Category2Pest()
+c2t = Category2Tab()
 
 file_name = "data/bq_ajinomoto_ja_updated.json"
 file_name = "data/bq_murata_ja_updated.json"
 file_name = "data/CN_ja.json"
+file_name = "data/theme_log_23_03_06-12.json"
 
 articles1 = json.load(open(file_name))
 out_file_name = file_name.split(".")[0] + "_out.json"
@@ -19,12 +22,16 @@ out_file2 = open(out_file_name, 'w')
 out_file = open('data/category_result_json.tsv', 'w')
 
 for news in articles1:
+    if not news["title"]:
+        out_file.write("")
+        continue
     category_list = model.news_category_classification(news["title"])  # カテゴリの候補の抽出
     if sc.debug:
         print(category_list)
         out_file.write(news["title"] + "\t" + category_list)
     else:
-        pest = c2p.category2pest(category_list)
+#        pest = c2p.category2pest(category_list)
+        pest = c2t.category2tab(category_list)
         print(category_list + "\t" + pest)
         ret = news["title"] + '\t' + category_list + "\t" + pest + '\n'
         news["category"] = category_list

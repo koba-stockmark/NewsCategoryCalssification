@@ -33,13 +33,15 @@ class CategoryClassification:
             return text[:text.rfind("〈")]
         if text.endswith("》"):
             return text[:text.rfind("《")]
+        if text.endswith("＞"):
+            return text[:text.rfind("＜")]
         return text
 
 
     ######################################################
     #  タイトル中のスペースを「。」に置き換える
     ######################################################
-    change_word = ["＝", "―", "-", "－", "：", "｜", "…", ":", "─", "～", "|"]
+    change_word = ["＝", "―", "-", "－", "：", "｜", "…", ":", "─", "～", "|", "〜"]
     
     def title_change(self, text):
         ret = ""
@@ -77,6 +79,8 @@ class CategoryClassification:
     def news_category_classification(self, text):
         l_ct = 0
         ret = ""
+        if not text:
+            return ret
         for line in text.splitlines():
 #            if "。" not in line and (" " in line or "　" in line):
             line = self.title_change(line)
