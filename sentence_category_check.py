@@ -165,8 +165,9 @@ class SentenceCategoryCheker:
                                 verb_ok = True
                                 break
                         if verb_ok and "obj" in rule["rule"]:
-                            for check_obj in rule["rule"]["obj"]:
-                                if check_obj and (check_obj in verb_word or check_obj in "[" + verb_word + "]"):
+#                            for check_obj in rule["rule"]["obj"]:
+                                if self.rule_check2(verb_word, rule["rule"]["obj"]):
+#                                if check_obj and (check_obj in verb_word or check_obj in "[" + verb_word + "]"):
                                     if ret:
                                         ret = ret + ',' + rule["label"]
                                     else:
