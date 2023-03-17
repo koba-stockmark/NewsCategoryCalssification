@@ -41,7 +41,7 @@ class CategoryClassification:
     ######################################################
     #  タイトル中のスペースを「。」に置き換える
     ######################################################
-    change_word = ["＝", "―", "-", "－", "：", "｜", "…", ":", "─", "～", "|", "〜"]
+    change_word = ["＝", "―", "-", "－", "：", "｜", "…", ":", "─", "～", "|", "〜", "│"]
     
     def title_change(self, text):
         ret = ""
@@ -83,8 +83,8 @@ class CategoryClassification:
             return ret
         for line in text.splitlines():
 #            if "。" not in line and (" " in line or "　" in line):
-            line = self.title_change(line)
             line = self.title_punct_cut(line)
+            line = self.title_change(line)
             l_ct = l_ct + 1
             ret_p = self.category_get(line)
             if ret_p:

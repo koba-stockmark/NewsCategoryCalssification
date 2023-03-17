@@ -26,8 +26,8 @@ class Category2Tab:
             if tab_word == "技術":
                 if detail_word == "オピニオン":
                     tab_word = "技術コラム"
-                elif detail_word == "レポート":
-                    tab_word = "技術レポート"
+#                elif detail_word == "レポート":
+#                    tab_word = "技術レポート"
                 else:
                     tab_word = "技術トピック"
             return "<" + tab_word + ">"
