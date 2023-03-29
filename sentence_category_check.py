@@ -65,6 +65,16 @@ class SentenceCategoryCheker:
                         return True
         return False
 
+    def punct_cut(self, obj_start, obj_end, *doc):
+        if doc[obj_start].tag_ == "補助記号-括弧開":
+            return obj_end
+        for pt in range(obj_start, obj_end + 1):
+            if doc[pt].tag_ == "補助記号-括弧開":
+                for pt2 in range(pt, obj_end + 1):
+                    if doc[pt2].tag_ == "補助記号-括弧閉":
+                        return pt - 1
+        return obj_end
+
     ok_case = ["を", "の", "へ", "と", "で", "が", "も", "のみ", "に", "など", "や"]
     def category_chek(self, start, end, modality_w, sub_start, sub_end, obj_start, obj_end, pre_category, call_mode, p_rule, *doc):
         if start == -1 or end == -1:
@@ -93,6 +103,7 @@ class SentenceCategoryCheker:
                 new_end = c_pt - 1
                 break
         verb_word = chunker.compaound(start, new_end, *doc)
+        obj_end = self.punct_cut(obj_start, obj_end, *doc)  # カッコ書きの削除
         obj_word = chunker.compaound(obj_start, obj_end, *doc)
         # O-V　ルール
         if obj_start >= 0:
@@ -119,6 +130,7 @@ class SentenceCategoryCheker:
                         if check_verb and (check_verb in verb_word or check_verb in "[" + verb_word + "]" or check_verb == ".*"):
                             verb_ok = True
                             break
+                    # 述部がOKのときは項をチェック
                     if verb_ok and "obj" in rule["rule"]:
                         for check_obj in rule["rule"]["obj"]:
                             if check_obj and (check_obj in obj_word or check_obj in "[" + obj_word + "]"):
@@ -164,6 +176,14 @@ class SentenceCategoryCheker:
                         if ng_f:
                             continue
                     if "verb" in rule["rule"]:
+                        if "ng_obj" in rule["rule"]:
+                            ng_f = False
+                            for ch_obj in rule["rule"]["ng_obj"]:
+                                if ch_obj in verb_word:
+                                    ng_f = True
+                                    break
+                            if ng_f:
+                                continue
                         for check_verb in rule["rule"]["verb"]:
                             if check_verb and (check_verb in sub_verb_word or check_verb in "[" + sub_verb_word + "]"):
                                 verb_ok = True

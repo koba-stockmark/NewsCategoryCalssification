@@ -1,4 +1,5 @@
 from sentence_category_get import SentenceCategoryGet
+from  category_rule_dic import CategoryRule
 
 class CategoryClassification:
 
@@ -71,27 +72,56 @@ class CategoryClassification:
             ret = ret + "。"
         return ret
 
+    ##########################################################################################################################################
+    # タイトルからカテゴリが判断できたかのチェック
+    ##########################################################################################################################################
+    def category_is_ok(self, category):
+        for chek in category.split(","):
+            if chek in CategoryRule.top_category:
+                return True
+        return False
 
     ##########################################################################################################################################
     # ニュースのカテゴリのチェック
     ##########################################################################################################################################
 
-    def news_category_classification(self, text):
-        l_ct = 0
+    def news_category_classification(self, title, text):
         ret = ""
-        if not text:
-            return ret
-        for line in text.splitlines():
+        if title:
+            l_ct = 0
+            for line in title.splitlines():
 #            if "。" not in line and (" " in line or "　" in line):
-            line = self.title_punct_cut(line)
-            line = self.title_change(line)
-            l_ct = l_ct + 1
-            ret_p = self.category_get(line)
-            if ret_p:
-                ret = ret + ret_p[0]
-            if l_ct > 5:     # 5文以内に何もカテゴリがない場合は　その他
-                if ret:
-                    return ret
-                return "<その他>"
-        return ret
+                line = self.title_punct_cut(line)
+                line = self.title_change(line)
+                l_ct = l_ct + 1
+                ret_p = self.category_get(line)
+                if ret_p:
+                    ret = ret + ret_p[0]
+                if l_ct > 5:  # 5文以内に何もカテゴリがない場合は　その他
+                    if not ret:
+                        ret = "<その他>"
+                    break
+        if self.category_is_ok(ret):
+            return ret, ""
+        t_ret = ret
+        if text:
+            l_ct = 0
+            for lines in text.splitlines():
+                if lines:
+                    for line in lines.split("。"):
+                        l_ct = l_ct + 1
+                        ret_p = self.category_get(line + "。")
+                        if ret_p[0]:
+                            for add in ret_p[0].split(","):
+                                if add not in ret:
+                                    if ret:
+                                        ret = ret + "," + add
+                                    else:
+                                        ret = add
+                        if l_ct > 5:  # 5文以内に何もカテゴリがない場合は　その他
+                            if ret:
+                                return ret, t_ret
+                            else:
+                                return "<その他>", t_ret
+        return ret, t_ret
 
