@@ -42,7 +42,7 @@ class CategoryClassification:
     ######################################################
     #  タイトル中のスペースを「。」に置き換える
     ######################################################
-    change_word = ["＝", "―", "-", "－", "：", "｜", "…", ":", "─", "～", "|", "〜", "│"]
+    change_word = ["＝", "―", "-", "－", "：", "｜", "…", ":", "─", "～", "|", "〜", "│", "／"]
     
     def title_change(self, text):
         ret = ""
@@ -87,6 +87,7 @@ class CategoryClassification:
 
     def news_category_classification(self, title, text):
         ret = ""
+        debug_dump = ""
         if title:
             l_ct = 0
             for line in title.splitlines():
@@ -95,6 +96,7 @@ class CategoryClassification:
                 line = self.title_change(line)
                 l_ct = l_ct + 1
                 ret_p = self.category_get(line)
+                debug_dump = debug_dump + ret_p[1]
                 if ret_p:
                     ret = ret + ret_p[0]
                 if l_ct > 5:  # 5文以内に何もカテゴリがない場合は　その他
@@ -102,7 +104,7 @@ class CategoryClassification:
                         ret = "<その他>"
                     break
         if self.category_is_ok(ret):
-            return ret, ""
+            return ret, "", debug_dump
         t_ret = ret
         if text:
             l_ct = 0
@@ -111,6 +113,7 @@ class CategoryClassification:
                     for line in lines.split("。"):
                         l_ct = l_ct + 1
                         ret_p = self.category_get(line + "。")
+                        debug_dump = debug_dump + ret_p[1]
                         if ret_p[0]:
                             for add in ret_p[0].split(","):
                                 if add not in ret:
@@ -120,8 +123,8 @@ class CategoryClassification:
                                         ret = add
                         if l_ct > 5:  # 5文以内に何もカテゴリがない場合は　その他
                             if ret:
-                                return ret, t_ret
+                                return ret, t_ret, debug_dump
                             else:
-                                return "<その他>", t_ret
-        return ret, t_ret
+                                return "<その他>", t_ret, debug_dump
+        return ret, t_ret, debug_dump
 

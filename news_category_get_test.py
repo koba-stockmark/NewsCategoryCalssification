@@ -42,7 +42,7 @@ for doc in articles23:
                 #                pest = c2p.category2pest(category_list[0])
                 pest = c2t.category2tab(category_list[0])
             print(category_list[0] + "\t" + pest)
-            out_file.write(category_list[1])
+            out_file.write(category_list[2])
         else:
             pest = ""
             if category_list[0]:
