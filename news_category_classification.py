@@ -13,29 +13,46 @@ class CategoryClassification:
         self.category_get = s_c_g.category_get
 
     ######################################################
+    #  英語からの翻訳タイトルをっ整理するする
+    ######################################################
+    def english_taitle_clean(self, text):
+        title = ""
+        pre = ""
+        for word in text.split(" "):
+            if word.isalpha() and pre.isalpha():
+                title = title + " " + word
+            else:
+                title = title + word
+            pre = word
+        return title
+
+    ######################################################
     #  タイトル最後のカッコ書きを削除する
     ######################################################
     def title_punct_cut(self, text):
+        let_line = ""
         if text.endswith("」"):
-            return text[:text.rfind("「")]
+            let_line = text[:text.rfind("「")]
         if text.endswith("）"):
-            return text[:text.rfind("（")]
+            let_line = text[:text.rfind("（")]
         if text.endswith(")"):
-            return text[:text.rfind("(")]
+            let_line = text[:text.rfind("(")]
         if text.endswith("】"):
-            return text[:text.rfind("【")]
+            let_line = text[:text.rfind("【")]
         if text.endswith("』"):
-            return text[:text.rfind("『")]
+            let_line = text[:text.rfind("『")]
         if text.endswith("]"):
-            return text[:text.rfind("[")]
+            let_line = text[:text.rfind("[")]
         if text.endswith("］"):
-            return text[:text.rfind("[")]
+            let_line = text[:text.rfind("[")]
         if text.endswith("〉"):
-            return text[:text.rfind("〈")]
+            let_line = text[:text.rfind("〈")]
         if text.endswith("》"):
-            return text[:text.rfind("《")]
+            let_line = text[:text.rfind("《")]
         if text.endswith("＞"):
-            return text[:text.rfind("＜")]
+            let_line = text[:text.rfind("＜")]
+        if let_line:
+            return let_line
         return text
 
 

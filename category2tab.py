@@ -33,12 +33,14 @@ class Category2Tab:
                     tab_word = "技術コラム"
                 elif detail_word == "目標":
                     tab_word = "技術目標"
+                elif "提携" in category:
+                    tab_word = "業界動向"
 #                elif detail_word == "レポート":
 #                    tab_word = "技術レポート"
                 else:
                     tab_word = "技術トピック"
             if tab_word == "製品サービス":
-                if detail_word == "目標":
+                if detail_word == "目標" or detail_word == "レポート" or "市場動向" in category or "業界情報" in category or "契約" in category:
                     tab_word = "業界動向"
                 elif detail_word == "オピニオン":
                     tab_word = "業界コラム"

@@ -48,6 +48,17 @@ class SentenceCategoryCheker:
             if "ng" in check:
                 if check[3:-1] == verb[-len(check[3:-1]):]:
                     return False
+                if "*" in check:
+                    check = check[3:-1]
+                    post_w = check[check.find("*") + 1:]
+                    if post_w:
+                        che = verb[0:-len(post_w)]
+                    else:
+                        che = verb
+                    if (not post_w or post_w == verb[-len(post_w):]) and check[:check.find("*")] in che:
+                        return False
+                    elif "*" in post_w and check[:check.find("*")] in che and post_w[:post_w.find("*")] in che:
+                        return False
         for check in rule:
             if check and check[0] != "[":
                 if "*" in check:
@@ -70,9 +81,8 @@ class SentenceCategoryCheker:
             return obj_end
         for pt in range(obj_start, obj_end + 1):
             if doc[pt].tag_ == "補助記号-括弧開":
-                for pt2 in range(pt, obj_end + 1):
-                    if doc[pt2].tag_ == "補助記号-括弧閉":
-                        return pt - 1
+                if doc[obj_end].tag_ == "補助記号-括弧閉":
+                    return pt - 1
         return obj_end
 
     ok_case = ["を", "の", "へ", "と", "で", "が", "も", "のみ", "に", "など", "や"]
@@ -103,7 +113,7 @@ class SentenceCategoryCheker:
                 new_end = c_pt - 1
                 break
         verb_word = chunker.compaound(start, new_end, *doc)
-        obj_end = self.punct_cut(obj_start, obj_end, *doc)  # カッコ書きの削除
+#        obj_end = self.punct_cut(obj_start, obj_end, *doc)  # カッコ書きの削除
         obj_word = chunker.compaound(obj_start, obj_end, *doc)
         # O-V　ルール
         if obj_start >= 0:
