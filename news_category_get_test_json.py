@@ -3,18 +3,26 @@ from news_category_classification import CategoryClassification
 from sentence_category_get import SentenceCategoryGet
 from category2pest import Category2Pest
 from category2tab import Category2Tab
+from category2tech_tab import Category2TechTab
 
 
 model = CategoryClassification()    # CategoryClassificationのクラスのインスタンス化
 sc = SentenceCategoryGet()
 c2p = Category2Pest()
 c2t = Category2Tab()
+c2tt = Category2TechTab()
 
 file_name = "data/bq_ajinomoto_ja_updated.json"
 file_name = "data/bq_murata_ja_updated.json"
 file_name = "data/CN_ja.json"
 file_name = "data/theme_log_23_03_06-12.json"
 #file_name = "data/views.json"
+#file_name = "data/english_title.json"
+file_name = "data/english_err.json"
+
+file_name = "data/AI.json"
+#file_name = "data/3月人気記事.json"
+#file_name = "data/カーボンニュートラル.json"
 
 articles1 = json.load(open(file_name))
 out_file_name = file_name.split(".")[0] + "_out.json"
@@ -37,13 +45,11 @@ for news in articles1:
         category_list = model.news_category_classification(model.english_taitle_clean(news["translated_title"]), "")  # カテゴリの候補の抽出
     if sc.debug:
         print(category_list[0] + "\t" + category_list[1])
-        if not news["title"] and ("text" not in news or not news["text"]):
-            out_file.write(news["translated_title"] + "\t" + category_list[0] + "\t" + category_list[1])
-        else:
-            out_file.write(news["title"] + "\t" + category_list[0] + "\t" + category_list[1])
+        out_file.write(category_list[2])
     else:
 #        pest = c2p.category2pest(category_list)
-        pest = c2t.category2tab(category_list[0])
+#        pest = c2t.category2tab(category_list[0])
+        pest = c2tt.category2tab(category_list[0])
         print(category_list[0] + "\t" + pest)
         if not news["title"] and ("text" not in news or not news["text"]):
             ret = news["translated_title"] + '\t' + category_list[0] + "\t" + pest + '\n'

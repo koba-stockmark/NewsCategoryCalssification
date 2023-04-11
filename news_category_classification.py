@@ -35,8 +35,12 @@ class CategoryClassification:
             let_line = text[:text.rfind("「")]
         if text.endswith("）"):
             let_line = text[:text.rfind("（")]
+            if "）" in text[text.rfind("（"):-1]:
+                let_line = let_line[:let_line.rfind("（")]
         if text.endswith(")"):
             let_line = text[:text.rfind("(")]
+            if ")" in text[text.rfind("("):-1]:
+                let_line = let_line[:let_line.rfind("(")]
         if text.endswith("】"):
             let_line = text[:text.rfind("【")]
         if text.endswith("』"):

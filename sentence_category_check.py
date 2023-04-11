@@ -253,7 +253,7 @@ class SentenceCategoryCheker:
                                     ret = ret + rule["label"]
 
         # 目的語からフェーズをチェック
-        if verb_word in s_v_dic.sub_verb_dic and verb_word not in s_v_dic.special_sub_verb_dic and obj_start >= 0:
+        if verb_word in s_v_dic.sub_verb_dic and verb_word not in s_v_dic.special_sub_verb_dic and obj_start >= 0 and "サ変可能" in doc[obj_end].tag_:
             ret2 = self.category_chek(obj_start, obj_end, "", -1, -1, -1, -1, '', 1, p_rule,  *doc)
             # 項全体として重複をチェック
             if ret2:
@@ -479,10 +479,10 @@ class SentenceCategoryCheker:
                                 no_subject = False
                                 break
 #                        if no_subject:
-                        if no_subject and doc[chek_predicate["lemma_end"]].pos_ != "NOUN" and ("modality" not in chek_predicate or
+                        if no_subject and doc[chek_predicate["lemma_end"]].pos_ != "NOUN" and doc[chek_predicate["lemma_end"]].pos_ != "ADJ" and ("modality" not in chek_predicate or
                                            ("<疑問>" not in chek_predicate["modality"] and "<勧誘>" not in chek_predicate["modality"] and
                                             "<容易>" not in chek_predicate["modality"] and "<限定>" not in chek_predicate["modality"] and
-                                            "<意思・願望>" not in chek_predicate["modality"])): #　体言度目は例外に　男女1,000人にメンズコスメ「スキンケア」に関する調査／男性で日焼け対策を実施している人は約6割。
+                                            "<意思・願望>" not in chek_predicate["modality"] and "<継続>" not in chek_predicate["modality"])): #　体言度目は例外に　男女1,000人にメンズコスメ「スキンケア」に関する調査／男性で日焼け対策を実施している人は約6割。
                             continue
                     if koto_f:    # 〜こと　の項があった場合は優先して　「を格」以外は拡張しない
                         continue
