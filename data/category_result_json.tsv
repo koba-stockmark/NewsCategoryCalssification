@@ -1,360 +1,102 @@
-契約DXサービス「Contract One」が「GPT-4」の利用研究を開始	<利用・採用>,<研究>	<技術>
-対話型AI「Kore.ai」ノーコードプラットフォームの提供開始	<サービス開始>,<技術提供>	<製品サービス>,<提携>
-KDDIがカメラ映像管理サービスにAI解析を追加、学習済みモデルを迅速導入｜BUSINESS NETWORK	<技術開発>,<サービス開始>,<商品化>,<利用・採用>	<技術>,<製品サービス>
-クラスメソッドとメソドロジックがModern Data Stack分野で戦略的協業を開始	<提携>	<提携>
-アッペン、生成AIアプリケーションの構築を可能にする3つの製品・サービスを発表！	<商品化>,<サービス開始>,<コラム>	<製品サービス>,<オピニオン>
-コンピュータービジョン分野のトップカンファレンス「CVPR 2023」に論文2件が採択 | コニカミノルタ	<研究>,<表彰>,<利用・採用>	<技術>
-Adobeも採用した生成AI、下支えするNVIDIAのGPU		
-ラグナロク株式会社、エンジニア希望者全員にGithub Copilotを支給！AIも積極的に活用して開発効率を上げていきます！	<コラム>,<技術開発>,<方針>	<技術>,<オピニオン>,<目標>
-TIS、チャットボット作成サービス「Dialog Play」で音声認識入力/読み上げのカスタマイズが可能に | IT Leaders	<コラム>,<技術開発>	<技術>,<オピニオン>
-プログラミング不要で画像認識AIを作成できる「Humanome Eyes」（アスキー）	<技術開発>	<技術>
-米国ITビジネス誌『Martech Outlook』が選定する「2022年アジア太平洋地域におけるTOP10のCXソリューション企業」に選出	<政府・宣言>,<表彰>	<政治>
-従来のStable Diffusionより大幅に強化された画像生成AI「Stable Diffusion XL」のベータ版がテスト公開されたので使ってみた	<実験>,<コラム>,<レビュー>	<技術>,<レビュー>,<オピニオン>
-【西田宗千佳連載】マイクロソフトはAI検索に未来を賭ける。その理由は？	<コラム>	<オピニオン>
-ジェネレーティブAIの「Adobe Firefly」では「マリオ」「ピカチュウ」などの著作権で保護されたコンテンツが回避されるというのがよく分かる「Midjourney」との比較画像		
-GPTなど複数の大規模言語モデルを活用した、新世代のInsight Data Masking Ver.3.0をリリース	<コラム>,<サービス開始>,<技術開発>,<利用・採用>	<技術>,<製品サービス>,<オピニオン>
-LayerX、ChatGPTなどの生成AIの専門組織を開設‐PdMやSEなどを募集	<募集>	<イベント>
-GPT-4とは何か--GPT-3以降の変遷から最新の動きまで	<コラム>	<オピニオン>
-GPT-4が脅威分析し「パワポ1枚」で報告、マイクロソフトがSecurity Copilot公開	<情報公開>	
-SRE・インフラ関連サービスの情報サイト「Sproutly SREベース」 開設	<サービス開始>,<設備投資>	<製品サービス>
-塩野義製薬、AIチャットボットをコーポレートサイトに設置 | IT Leaders	<組織>,<設備投資>	
-改正道路交通法の施行でどう変わる? NTTが進めるデジタルツインやAIを活用したIOWN関連の自動運転・モビリティ技術まとめ - ロボスタ	<コラム>,<技術開発>	<技術>,<オピニオン>
-凸版印刷と3dig、等身大のフォトリアルなバーチャルヒューマンと対話するサイネージシステムの実証を開始	<実験>	<技術>
-ChatGPTなどの対話型AIは「正解を探す検索エンジン」ではなく「単語の計算機」と考えるべきだという指摘	<見解>,<コラム>,<意見>	<オピニオン>
-メタデータ、JEPA日本電子出版協会主催の第1回企業セミナーで野村社長が講演：『ChatGPT時代のAI講座』 – とれまがニュース	<セミナー>	<イベント>
-ChatGPTで広告運用の実行スピードを大幅短縮する「ChatGPTオペレーション変革室」を設立 ～ 「ChatGPT」を適切かつセキュアに活用することでオペレーション総時間の30%を削減へ ～	<設立>,<技術開発>,<利用・採用>,<コラム>,<目標>	<技術>,<オピニオン>,<目標>
-〈ChatGPTを活用した法人向けプラットフォーム「法人GPT」〉12業種に特化したプロンプトテンプレート新機能111種を搭載し、2023年4月4日（火）正式リリース	<技術開発>,<利用・採用>	<技術>
-ミキワメ、4/12に「人事業務」と「ChatGPT」をテーマにオンラインセミナーを開催	<セミナー>	<イベント>
-3人の“データ・スーパーヒーロー”が語る、Snowflakeとデータ活用の最前線	<コラム>	<オピニオン>
-「私はロボットではありません」　AIがセキュリティ認証を突破？	<技術開発>,<コラム>	<技術>,<オピニオン>
-ChatGPTと合体しSiriが最強に！「MixerBox ChatAIブラウザ」テスト版リリース	<実験>	<技術>
-AI研究の巨匠　一問一答「教育や医療、環境分野への活用を」　 | 毎日新聞	<技術開発>,<利用・採用>	<技術>
-画像生成AIのStable DiffusionやMidjourneyで生成可能な画像とプロンプトを写真やイラストから検索できる「unprompt.ai」	<調査>	
-デザインの視点からビジネス課題解決を支援する「Design-X」、サービス提供開始のお知らせ	<サービス開始>,<技術提供>	<製品サービス>,<提携>
-「チャットＧＰＴ」が一変させ得る知的作業プロセス ニュースイッチ by 日刊工業新聞社	<技術開発>	<技術>
-機械学習の社会実装勉強会第22回 (2023/04/29 10:00〜)	<イベント>	<イベント>
-AI契約審査プラットフォーム「LegalForce」、「ChatGPT」を活用した「条文修正アシスト」機能をオープンβ版として5月中を目処に提供開始	<サービス開始>,<技術提供>	<製品サービス>,<提携>
-テンセント、中国版「ChatGPT」を開発中　類似プロダクト競争激化（36Kr Japan）	<技術動向>,<技術開発>	<技術>
-AI画像解析を用いた人流解析サービスを開始	<サービス開始>	<製品サービス>
-広告レポート自動化「Roboma（ロボマ）」が「Apple Search Ads」と連携開始	<提携>	<提携>
-KXがMicrosoft Azure上で業界初のデータタイムハウスを提供	<技術提供>	<提携>
-クラウドエース、Google Cloud Day ’23 Tour に協賛	<支援>	
-ラピュタロボティクス、自動フォークリフトの発売を開始	<商品化>	<製品サービス>
-KOONG、一流のNFT技術力でグローバル市場へ進出	<海外展開>	
-業務時間の20%をAI研究に割いてもOKのワケーースタートアップはChatGPT時代をどう迎える／ミラティブ赤川氏【無料公開中】	<市場データ>	
-ChatGPTで見込み客の心理分析から対応方策を提案	<提案>,<業界情報>	<オピニオン>
-セプテーニ、AIが広告効果の高いBGMを自動生成する「Odd-AI Sound」リリース	<技術開発>,<サービス開始>	<技術>,<製品サービス>
-ChatGPTにマルウェア作成を任せる時代が来るのか？	<コラム>	<オピニオン>
-ChatGPTを仕事にどう使う？ 【「ChatGPTのビジネスにおける活用法と限界」ウェビナーレポート】	<技術開発>,<コラム>	<技術>,<オピニオン>
-ChatGPT等のAI活用術を学べる「Prompt Engineering Guide」を「Track Training」のオフィシャルコースとして配信開始	<営業活動>	<製品サービス>
-グーグルCEO、「Bard」のアップデートを予告--現状は「チューンアップした大衆車」	<コラム>	<オピニオン>
-ジール、BANDAI SPIRITSのDX加速・データ活用拡大の要となる AWSデータ活用基盤の最適化・高度化を支援	<コラム>,<支援>	<オピニオン>,<トピック>
-セプテーニ・ＨＤが続伸、ＡＩで広告の音楽を自動生成するサービスに期待強まる	<株式概況>	
-生成系AIがもたらすのはユートピアか、それともディストピアか／第1回AIアートグランプリトークセッション「生成系AIの可能性と未来」レポート【特集・集中企画】	<コラム>,<情報公開>	<オピニオン>
-宿泊業界向けくちこみ一括管理ツール「くちこみクラウド」、自動作文用AIエンジンにChatGPTを追加	<技術開発>,<サービス開始>,<商品化>	<技術>,<製品サービス>
-ChatGPTの進化で話題！ AIの今後を大予測。仕事が奪われるのはいつ？ どう活用すればいい？（男の隠れ家デジタル）	<コラム>,<予測>,<社会事件>,<利用・採用>	<技術>,<社会>,<オピニオン>
-グローバルで通用する英語コミュニケーションスキルを学ぶプログラム「グローバルスキルPowerトレーニング」を法人向けに提供開始	<サービス開始>,<技術提供>	<製品サービス>,<提携>
-マイクロソフトが新しいBingに文章で画像生成ができる新機能「Image Creator」を追加｜@DIME アットダイム	<技術開発>,<サービス開始>,<商品化>	<技術>,<製品サービス>
-NVIDIAと三井物産が日本の製薬業界を進化させるためのスーパーコンピューター「Tokyo-1」を開発｜@DIME アットダイム	<コラム>,<技術開発>	<技術>,<オピニオン>
-ＡＩで魚の骨検知/ＹＥデジタルが実証へ	<実験>,<目標>	<技術>,<目標>
-ChatGPTはリサーチの助手として有能か？　犯罪学者が検証	<研究>,<調査>	<技術>,<レポート>
-米アップルが開発者会議を6月開催　革新的アプリ作成支援 | 電波新聞デジタル	<イベント>,<会議>,<政府・会談>,<支援>	<イベント>,<政治>,<トピック>
-「パーソナルトレーニングの経験」を資産に！ 筋トレして稼ぐ「Muscle to Earn」をリリース！	<サービス開始>,<コラム>	<製品サービス>,<オピニオン>
-PKSHA、松尾研究所と共同でベンチャーキャピタルファンドを設立	<設立>	
-エイシング、世界的半導体メーカー各社とAIパビリオンに共同出展	<イベント>	<イベント>
-深層学習による顔認識技術を用いたチェックイン機能をリリース	<技術開発>,<サービス開始>	<技術>,<製品サービス>
-ホットリンク、R&D部・水木が主著の発表論文が、言語処理学会第29回年次大会（NLP2023）で優秀賞を受賞	<表彰>	
-AI機能を搭載してバージョンアップ！自動メーター監視システム「EasyMonitoring2」をアップデート	<技術開発>,<コラム>,<サービス更新>	<技術>,<製品サービス>,<オピニオン>
-AI技術を用いて医師の読影業務の効率化を支援　AIプラットフォーム「SYNAPSE SAI viewer Ver2.2」提供開始　胸部・腹部の主要臓器へ画像解析機能の対象を拡大 | 富士フイルムメディカル株式会社	<技術開発>,<支援>,<サービス開始>,<技術提供>,<業界情報>,<方針>	<技術>,<製品サービス>,<提携>,<目標>,<トピック>
-グーグルのAIチームで｢頭脳流出｣深刻化。トップ研究者たちはどこへ行ったのか？	<背景>,<コラム>	<オピニオン>
-イギリス当局、ChatGPTなど生成AI利用の留意点を公表 - 日本経済新聞	<技術開発>,<市場動向>	<技術>
-「AIチャットくん」開発の株式会社picon、Microsoft for Startups Founders Hubに採択	<利用・採用>	<技術>
-スポーツ界の未来の共創を目指す「Verdy Sports Innovation Hub」設立のお知らせ	<設立>	
-コグネックスがAI搭載の新たな外観検査カメラ、幅広い検査に対応	<技術開発>	<技術>
-Dataikuのカントリーマネージャーとして佐藤 豊が就任し、日本におけるAIコミットメントの強化を図る	<人事>,<方針>	
-ユナイテッドアローズ、検索結果ページや商品詳細ページに自動生成したハッシュタグを表示		
-Wyss Center（ジュネーブ）、新CEOにアーウィン・ベッティンガー氏を任命：時事ドットコム	<人事>	
-潰瘍性大腸炎の組織学的評価にAIが有用｜呼吸器｜臨床医学｜医療ニュース｜Medical Tribune		
-データ駆動型ファイナンス輪読会 #8 最終回【マケデコ若手の会】 (2023/04/08 10:00〜)	<イベント>	<イベント>
-進化するAIで外国語学習は不要？「共存へ使いこなしを」 - 日本経済新聞	<コラム>,<市場動向>	<オピニオン>
-ベーシック、4/19(水)11:30よりマーケティング・セールス担当者に向けたセミナー「“ヘビーマーケティング”からの脱却！BtoBマーケターの本来の業務とはなにか？」を開催	<目標>,<セミナー>	<イベント>,<目標>
-ジェネレーティブAIが紡ぐフェイクに満ちた世界にようこそ：SZ MEMBERSHIPで最も読まれた5記事（2023年3月）	<コラム>	<オピニオン>
-『ChatGPT』で衰退する企業・生き残る企業は？長期投資家が注目すべき“オイシイ”業種＝栫井駿介	<コラム>	<オピニオン>
-【データサイエンス数学ストラテジスト［中級］】合格に導く”無料”Zoom勉強会を開催 (2023/04/20 12:00〜)	<イベント>	<イベント>
-監視カメラのフリーズを自動で復旧、同時に光と音声による報知で安定的な監視を実現	<技術開発>	<技術>
-SBテクノロジー、龍谷大学の農業データを一元管理するデータ分析基盤をMicrosoft Azureで開発。収集・可視化・分析まで総合的な支援を実施	<技術開発>,<支援>	<技術>,<トピック>
-中国バイドゥ､｢対話型AI｣の発表後に株価急落	<株式概況>	
-ルネサス、空気質センサ用に建物の空気環境基準をサポートするファームウェアを提供開始 - 日本経済新聞	<サービス開始>,<技術提供>,<市場動向>	<製品サービス>,<提携>
-富士通が、米ガートナー社のレポート「2023 Magic Quadrant(TM) for Outsourced Digital Workplace Services」にてリーダーの1社と評価：時事ドットコム	<業界情報>	
-株式会社Trippy、中高生向けAI家庭教師のLINE bot「AI先生『まなび』」をリリース	<サービス開始>	<製品サービス>
-ダークマターを見る！ - HSC国際チームが宇宙の標準理論を検証	<見解>,<研究>,<調査>	<技術>,<オピニオン>,<レポート>
-ADLINK、重量250gで“持ち運べる”TB3接続のRTX A500（Impress Watch）		
-電話DXのIVRyが東京ビッグサイトで行われる、流通情報システム総合展「第32回 Japan IT Week 【春】」へ出展	<イベント>	<イベント>
-本年度は法人向けの社員リスキリングを強化し、国内のエンジニアのスキルアップ・育成に貢献	<方針>,<説明>,<技術開発>	<技術>,<レビュー>,<目標>
-インフォメーション・ディベロプメント、鳥取大学との医療AIシステムに関する共同研究を開始	<研究>,<提携>	<技術>,<提携>
-FunTre株式会社、４月５日より開催される「第32回 Japan IT Week 春 」に自社開発ソフト『Boken』を初出展	<イベント>	<イベント>
-アップルのMRヘッドセットは買いか？同社製品がたどってきた進化のパターンを振り返る	<コラム>	<オピニオン>
-LayerX、生成AIの専門組織　新規事業を準備 - 日本経済新聞	<組織>,<方針>,<市場動向>	
-Amazonが悪質業者排除の動きを強化。模倣品の排除に向け法的措置も（PHILE WEB）	<コラム>,<目標>	<オピニオン>,<目標>
-ChatGPT風のUIを保ちつつフォルダ分け・ダウンロード・日本語表記に対応した「Better ChatGPT」レビュー	<技術開発>,<情報公開>,<レビュー>	<技術>,<レビュー>
-【（株）設備保全総合研究所】プラント保全に特化したクラウド型Webアプリケーション「EMLink」を正式リリース		
-プレステの父が注目する“AIの次”とは…「マトリックス」の世界が現実に？	<技術動向>,<コラム>	<技術>,<オピニオン>
-【米国株動向】見逃せないAI関連銘柄3選：アマゾン・ドットコム（AMZN）、ラム・リサーチ（LRCX）、アトラシアン（TEAM） | モトリーフール米国株情報 | マネクリ マネックス証券の投資情報とお金に役立つメディア	<障害>,<紹介>,<レポート>,<株式概況>,<コラム>	<社会>,<レビュー>,<オピニオン>,<レポート>
-今だけ無料トライアル『初期費用無料・システム費半額』社名変更記念キャンペーン実施中！	<コラム>,<サービス開始>	<製品サービス>,<オピニオン>
-自在肢（JIZAI ARMS）：身体の拡張と編集を自由にするロボットアームシステム | 知財図鑑	<技術開発>	<技術>
-新興と伝統それぞれが知恵を寄せ合うサステナビリティビジネスの未来	<コラム>	<オピニオン>
-RevBitsが2023年のグローバル・サイバーセキュリティ賞を複数のソリューションとカテゴリーで受賞：時事ドットコム	<表彰>	
-技術者の7割が「ChatGPT」の利用経験なし、世界的ブームも腰重く	<利用・採用>	<技術>
-バーチャルヒューマンimmaがBright Momentsと提携し、初のジェネレーティブアートコレクションを発表 | THE OWNER	<提携>	<提携>
-荒川区LINE公式アカウントにモビルスの自治体向けソリューション「有人チャットによる相談サービス」が採用	<政府・宣言>,<利用・採用>,<人事>	<技術>,<政治>
-戦略総務が企業組織を変えていく 脱バックオフィスを実現する総務労務サービス「Fleeksorm」リリース	<コラム>,<サービス開始>	<製品サービス>,<オピニオン>
-Twitter「おすすめ」に載るには？ アルゴリズムから掲載されやすいツイートを分析（KAI-YOU.net）	<業界情報>,<研究>	<技術>
-NTT東日本のフレッツ光公式サイトの本人確認に「LIQUID eKYC」を導入	<利用・採用>	<技術>
-世界最高峰・高精度の会員制ドライビングラボ施設「 simdrive |  シムドライブ 」が東京・麻布に誕生！	<設備投資>,<コラム>,<サービス開始>	<製品サービス>,<オピニオン>
-AVILEN、5期連続でE資格の合格者数No.1を達成！ 2023#1は253名を輩出し、シェア31%を獲得	<コラム>,<社会統計>,<市場動向>	<社会>,<オピニオン>
-SmartFlow経費精算に、さらなる経理ＤＸを目指して、新たに請求書の相殺処理機能/支払通知機能をリリース！追加オプションは不要	<方針>,<目標>,<サービス開始>,<コラム>,<技術開発>	<技術>,<製品サービス>,<オピニオン>,<目標>
-マスク氏らがAI開発一時停止を訴え、AIに逆風か? |  財経新聞	<コラム>,<社会事件>	<社会>,<オピニオン>
-パークシャ、対話型AI 開発後押し - 日本経済新聞	<技術開発>,<コラム>,<支援>,<市場動向>	<技術>,<オピニオン>,<トピック>
-Google Cloud、高性能化したPostgreSQL互換「AlloyDB」のオンプレミス向けソフトウェア「AlloyDB Omni」発表。開発環境での利用は無料		
-FRONTEOとSkadden、国際カンファレンスを共同開催「日本のコーポレート分野における最近の発展について」	<イベント>	<イベント>
-AIでインフラ産業DX　量子も研究、グリッド曽我部社長 - 日本経済新聞	<研究>,<市場動向>	<技術>
-サイバーセキュリティクラウド、国内No.1 EC構築オープンソース『EC-CUBE』を開発・提供する株式会社イーシーキューブとクラウド型WAF『攻撃遮断くん』の販売取次店契約...	<設備投資>,<譲渡・買収>,<契約>,<商品化>,<受注>	<製品サービス>,<提携>
-アドビが手探りで実践するデータサイエンティスト育成現場を見てきた（ITmedia PC USER）	<見解>,<コラム>	<オピニオン>
-ファッション特化AIでアパレル業界のデジタル化を牽引する「ニューロープ」、イークラウドを通じた資金調達を4月15日に開始	<政府・補助金>	<政治>
-建設業に特化したECモール『POWER WORK MALL』ついに解禁【4月1日リリース】：時事ドットコム	<政府・規制>,<サービス開始>	<政治>,<製品サービス>
-AIでインフラ産業DX - 日本経済新聞	<市場動向>	
-1万超の電源の“群制御”技術がカギに、電力取引市場はいきなりAI勝負	<スポーツ>	
-ALHが「AWS 300 APN Certification Distinction」に認定されました	<政府・認可>,<表彰>	<政治>
-人間とAI、どちらの大喜利がおもしろい？ハリセンボン・はるか氏に審査してもらった（週刊SPA!）	<コラム>,<政府・認可>	<政治>,<オピニオン>
-シャオアイ社会長、2023年のボアオ・フォーラムに出席し、人工知能開発に関するインサイトを紹介	<会議>,<政府・会談>,<イベント>	<イベント>,<政治>
-【米国株】AI半導体チップ開発競争激化！注目銘柄は | 石原順の米国株トレンド5銘柄 | マネクリ マネックス証券の投資情報とお金に役立つメディア	<技術開発>,<コラム>,<株式概況>	<技術>,<オピニオン>
-5つの検査を1台で実施、省スペース化に対応する飲料製造ライン向け外観検査装置：FAニュース	<調査>,<技術開発>,<生産活動>	<技術>,<レポート>
-シールドトンネル坑内における巡視点検業務に自律飛行型ドローンを活用する実証実験を実施	<実験>	<技術>
-ネオス、京都大学と京都市によるDXプロジェクトに参画保健所DXのプラットフォームとして【KarteConnect】が採用	<戦略>,<業界情報>,<利用・採用>	<技術>,<目標>
-【YouTuberランキング】週間動画再生数＜YouTuber＞~ヒカキン500万円韓国旅/ジュキヤ&ふぉい対面~（4月3日）	<レポート>	
-データレスキューセンター、会社設立21周年記念キャンペーンを実施	<イベント>	<イベント>
-Fusic、Qボードに上場　社長「ここからスタート」 - 日本経済新聞	<サービス開始>,<市場動向>	<製品サービス>
-独自の金融ビジネス特化型AI「BloombergGPT」をBloombergが発表、金融アナリストの業務や金融ニュースの作成を手助け可能	<方針>,<コラム>,<技術開発>	<技術>,<オピニオン>,<目標>
-堺アルミ、予測AI「xenoBrain」でアルミ価格やアルミを使う製品需要を予測し、精度の高い販売計画の実現をめざす	<市場動向>,<予測>	<オピニオン>
-デジタル耳せんモードなど、使用環境に合わせて4つのモードを搭載する完全ワイヤレスBluetoothヘッドホンを新発売	<商品化>	<製品サービス>
-ストラドビジョン、欧州自動車部品工業会（CLEPA）に加盟	<提携>	<提携>
-建設生産支援クラウド「Photoruction」建設BPO機能に「着工から竣工まで全工種の電子小黒板を作成する「工種別黒板管理」を追加	<技術開発>,<サービス開始>,<商品化>	<技術>,<製品サービス>
-石油化学新聞 5330号		
-シャープ、イノベーション組織を新設　先端技術を開発 - 日本経済新聞	<設立>,<設備投資>,<市場動向>	
-原子力に係る公募研究（2023年度研究開始分）の採択結果 - ニュース｜中部電力		
-国立情報学研究所と九大院研究チーム、共同で画像識別AIの誤識別リスクを低減する技術を開発	<技術開発>	<技術>
-「心臓の丸み」から心疾患リスクを予測 | 医療とAIのニュース・最新記事 - The Medical AI Times	<予測>	<オピニオン>
-すい臓がんをAIで発見　画期的な技術、難治を克服へ　神戸大と富士フィルムが開発、初期でも精度高く	<技術開発>,<研究>,<目標>	<技術>,<目標>
-【4月12日（水）～開催】トヨタ/日産/三菱重工などが登壇！製造業の最新トレンドを学べるセミナーを開催 @ポートメッセなごや	<セミナー>,<コラム>	<イベント>,<オピニオン>
-フジトラニュース編集部員による、富士通のリテール最新技術体験レポート	<情報公開>,<レポート>,<レビュー>	<レビュー>,<レポート>
-自治体向けフレイル検知サービス「eフレイルナビ」を提供開始 - ニュース｜中部電力	<サービス開始>,<技術提供>	<製品サービス>,<提携>
-CTCとJR東、上野駅のイベントで来店者の人流データを可視化--集客力を計測	<技術開発>,<研究>	<技術>
-【採血や予防接種の時】「アルコール消毒は大丈夫ですか？」と聞かれる理由	<コラム>	<オピニオン>
-セーフィー、逗子駅前広場における交通データの分析・可視化基盤を構築	<設備投資>	
-ＡＩが商品まとめて提案＝イオン、今夏に新ネットスーパー - 日本食糧新聞電子版	<コラム>,<業界情報>,<技術開発>	<技術>,<オピニオン>
-オリンパス、「日本医学会総会2023東京 博覧会」に出展	<イベント>	<イベント>
-子育てプラザで重ねた「にっこり」いくつ?　AIがカウントし、満足度の指標に　加古川の複合施設	<コラム>,<目標>	<オピニオン>,<目標>
-イオン、朝7時から1時間刻みで宅配　英社と自動倉庫 - 日本経済新聞	<市場動向>	
-【4月7日は世界保健デー・セルフケアの日】リアル×デジタルで健康を応援するカロママ プラスの「健康サポーター」ローンチから１年		
-東急・相鉄新横浜線、新しい大阪駅の開業、3月のダイヤ改正で関東や関西の鉄道はどう変わったか？｜@DIME アットダイム	<コラム>	<オピニオン>
-伝統織物「博多織」を知財情報から紐解いてみた【地財探訪 No.15】 | 知財図鑑	<コラム>,<レビュー>	<レビュー>,<オピニオン>
-Adopting Artificial Intelligence in Finance - Regulation Asia		
-Deep Dive Into Generative AI And What Will Drive Tomorrow - New Technology - United States		
-Conversational AI Global Market Report 2023: Low-code or No-code Conversational AI Solutions to Fuel Sector Growth		
-Amazon wants to boost ten generative AI startups around the globe		
-Quantum Computing Inc Appoints Emerging and Disruptive Technologies Specialist Lewis Shepherd to Its Technical Advisory Board		
-Hitachi Vantara Federal’s Pragyansmita Nayak on Today’s Vibrant’ AI Market		
-The state of artificial intelligence: Stanford HAI releases its latest AI Index Report		
-From 'transformative' to 'tremendous fear': Takes on ChatGPT in healthcare at ViVE 2023		
-AI and Programming Legend Stephen Wolfram Talks ChatGPT and the Future		
-AIdeaMap - Your AI co-pilot for interactive idea mapping | Product Hunt		
-How AI-generated content will revolutionize the ways we work	<技術開発>	<技術>
-C3.ai Stock: 3 Reasons to Avoid This Hot Artificial Intelligence Company		
-The 4 Stages of AI | Learning Innovation	<技術開発>	<技術>
-Eliyan Technology May Rewrite How Chiplets Come Together		
-Best Of BETT 2023: Robots, AI, Smart Lockers And More Revealed		
-Commentary: Startups can get a leg up by using ChatGPT as a co-founder — just beware its shortcomings		
-Is ChatGPT the future of recruiting?	<コラム>	<オピニオン>
-Generative AI in Marketing Market Predicted to Garner US$ 22.1 Bn by 2032, At CAGR 28.6%		
-Zilliz Cloud updates its vector database to fix AI hallucinations		
-AI to Enhance Clinical Value in Cardiovascular Healthcare		
-Healthcare Triangle Expands Long-Standing Customer Engagement with readabl.ai Medical Document Automation Solution - Healthcare Triangle (NASDAQ:HCTI)		
-Github Copilot vs ChatGPT: Basic Differences to Know		
-How AI is helping proptech overtake fintech investment and green the Built World		
-NICE Adds AI in Spring 2023 Release of CXone		
-5 Ways to Turn Text Into AI Art: Best Paid and Free Tools Explained		
-The Industry’s Future Is Being Written Today		
-What ChatGPT means for your search campaigns		
-Adthos Launches 100_Percent AI-Generated Ads	<技術開発>	<技術>
-How observability has changed in recent years, and what’s coming next		
-Nigeria: Explainer - How to Spot Deepfake Audio Clips Blended By Artificial Intelligence Tools		
-Science-Based Gaming Platforms		
-How To Leverage AI And Use ChatGPT In Your Job Search, According To Résumé Writers And Career Coaches		
-Google Cloud links up with Pager to expand data interoperability capabilities		
-I-ON Digital Corp.: I-ON Digital Corp Partners with Leading Technology Providers to Expand Workflow Automation, AI and Web3 Capabilities for Its Next-Generation Gold Digitization Ecosystem		
-Vulavula brings AI's speech and text powers to South African languages		
-Myth vs. reality: AI practical applications for credit union security in 2023		
-SuccessKPI Partners with Zoom to Unlock Insights for Contact Centers		
-Fortanix CEO Anand Kashyap on Confidential Computing		
-2001: A Space Odyssey, M3GAN and Other AI Films Are Rising		
-China's SenseTime shares jump on planned new AI products event		
-Laivly recognized in the Business Intelligence Group’s Artificial Intelligence Excellence Awards program - Canadian Manufacturing		
-Could ChatGPT Pose a Threat to Google's Dominance in Search?	<コラム>	<オピニオン>
-Better Buy: AMD Stock vs. Microsoft Stock		
-PiEEG Offers Affordable Brain-Computer Interface		
-We tested a new ChatGPT-detector for teachers. It flagged an innocent student.		
-Consumer robotics market size to grow by USD 23,439.8 million from 2022 to 2027; Growth driven by the growing demand for robotic automation processes - Technavio		
-Top 10 Data Catalog Software Solutions		
-How to get Bing Chat to provide better research paper search results		
-ChatGPT And AI Companies Must Compensate Content Creators, Says Media CEO		
-Spotting Innovation In Digital Health – And Can You Patent It? - Patent - UK	<コラム>	<オピニオン>
-What ChatGPT means for developers		
-10 fantastic AI art generators that can bring your wildest dreams to life		
-AI Bookstore - Find the book you want to read with the help of AI | Product Hunt	<技術開発>	<技術>
-Can Alphabet Survive the AI Revolution? What GOOG Stock Investors Need to Know	<コラム>	<オピニオン>
-Building a Great Customer Experience in the Metaverse		
-Hywin Holdings Ltd.: Hywin Launches WealthTech Platform to Enhance its Services for High-Net-Worth Clients through Data Analytics by Leveraging IBM Technology		
-As generative AI hype hits full steam, consumers carry reservations		
-Pass draft act to avoid fake news - Taipei Times		
-Nextech3D.ai AI-Powered CAD Design Studio Toggle3D Achieves 10X File Reduction Opening Up the Platform to New Large Enterprise Customers	<技術開発>	<技術>
-Using ChatGPT To Control And Leverage Other AI Apps Such As Hugging Face Gets You HuggingGPT, Prompting Eyebrow Raising By AI Ethics And AI Law		
-Body Camera Analytics Company Hosts Q&A Webinar on Latest Advancements in Law Enforcement Accountability		
-Industry leader continues to define the API security market		
-Virtual Drug Design Promises Real Benefits		
-Medical Coding Market to Reach $15.3B by 2033, Report Finds		
-FEATURE: AI language learning raises colonization fears - Taipei Times		
-How Randomness Improves Algorithms | Quanta Magazine		
-PDFgear's New ChatGPT-Powered Feature Allows Users to Chat with PDFs		
-Speedy and highly accurate prediction of flow phenomena		
-AI in an ancient city: Can technology help you on your vacation?	<コラム>	<オピニオン>
-Ezunial “Eze” Burts Named Director of Duality Quantum		
-How Randomness Improves Algorithms		
-Can ChatGPT Replace Diabetes Educators? Perhaps Not Yet	<コラム>	<オピニオン>
-5 priorities that cut cloud costs and improve IT ops		
-The Court of Justice of Par maximizes IT services performance and efficiency with Dynatrace platform		
-NIST Launches New Trustworthy and Responsible AI Resource Center		
-Braille recognition by E-skin system based on binary memristive neural network		
-Beamr Sags on Wochit Hookup		
-Ensuring America Wins Tech Race Against China		
-Computational Tools Take Advantage of the Data Deluge		
-Storytelling And Open-Source Internet: The Juxtaposition		
-TuSimple brings to market proprietary high-performance autonomous domain controller enabling a full suite of ADAS and L4 autonomous solutions		
-Google CEO Sundar Pichai Clarifies ChatGPT Code Red’ Rumor, Bard Flop		
-Tecnotree Sensa Wins First AIML Driven Customer Experience Deal with Tier-1 LATAM Operator		
-China actively accelerates building of computation network		
-Johns Hopkins Scientists, Oceanographers Design AI-based Simulation Method to Study Climate 'Tipping Points'	<技術開発>	<技術>
-FUJIFILM Healthcare Corporation to release ARIETTA 750 DeepInsight ultrasound system		
-Discussion: ChatGPT and Science Communication		
-Unlocking Quantum Potential With High-Quality Qubits: How Quantinuum Achieved A Three-Year String Of Record-Breaking Quantum Measurements		
-A new AI film festival is debuting in Utah, and its timing couldn't be better		
-In generative AI legal Wild West, the courtroom battles are just getting started		
-A new approach to upskilling is the key to navigating economic uncertainty		
-Bard AI Nipping At ChatGPT's Heels: Analyst Highlights Google's Progress In Closing Performance Gap - Alphabet (NASDAQ:GOOG), Alphabet (NASDAQ:GOOGL)		
-Former Google CEO Eric Schmidt says the tech sector faces a reckoning’: What happens when people fall in love with their A.I. tutor?’	<コラム>	<オピニオン>
-AI software helps astronomers deblur galaxies		
-Automation to manage financial services IT infrastructure in the multi-cloud era		
-New Research Shows Companies Built for the Future Are Generating Shareholder Returns Almost Three Times Greater Than Those of the S&P 1200		
-RGo Robotics Forecasts Growth as Company Adds to Leadership Team		
-Optibrium appoints computational modelling expert, Dr Hamed Tabatabaei Ghomi as Head of Research		
-Kando And Detection Services Partner To Deliver Unrivalled Customer Solutions Aimed At Improving Environmental Health And Conserving Resource Water		
-Quantexa, a fast-growing decision intelligence startup, raises $129M in late-stage funding		
-Turkish defense firm Havelsan partners with Epic for 'serious games'		
-The Increasing Trend For Optical Metrology To Oversee Smart Manufacturing		
-ChatGPT: A Conversation About Underwriting and Life Insurance		
-Respo AI - AI driven browser extension for impactful responses | Product Hunt	<技術開発>	<技術>
-AI could go 'Terminator,' gain upper hand over humans in Darwinian rules of evolution, report warns		
-Bombay Sapphire readies world’s largest AI art event		
-Windward: AI can increase visibility and create a more resilient supply chain - SAFETY4SEA		
-Fortinet announces enhanced network and security offerings		
-Hashtag Trending Apr.4th-OpenAI releases ChatGPT plugins, Western Digital suffers breach, Marty Cooper’s first phone call		
-Process Mining gets its own women’s group to drive gender equality in this emerging tech		
-Drawerrr - AI-powered job search for designers | Product Hunt	<技術開発>	<技術>
-AI-based Clinical Trial Solutions For Patient Matching Market Report 2022: Increase in Cross-Industry Alliances and Collaborations Fuel Growth	<技術開発>	<技術>
-How voicebots are showing high school girls a possible future in IT		
-Fourthline bags $54M to ease customer verification for financial institutions		
-Quality Station Automates 3D Scanning for Reverse Engineering and Digitization		
-Biomimetic Technology: A Natural in Therapeutics Design		
-Adludio Raises 2M in Funding		
-Newscall Presswire: Onix Launches New Brand to Support Rapid Growth and Propel the Company as a Leading Google Cloud Partner		
-CobbleStone Launches Software Update Loaded With Helpful CLM Features		
-3 ways to better manage your multicloud identity infrastructure		
-FIFA’s post-EA future starts with this AI-powered mobile game	<技術開発>	<技術>
-Innovative Inductive Encoder Solution for Extreme Automation Conditions Launched		
-Strivacity, which helps companies build secure login flows, nabs $20M		
-Mest - Your AI-powered wallet tracker | Product Hunt	<技術開発>	<技術>
-Sustainability at Disrupt		
-Hyperjob raises €435k to bring marketing tactics to the recruitment process		
-Publicis Health Media's Annual PHM HealthFront Announces 2023 Program		
-Hugging Face hosts ‘Woodstock of AI,’ emerges as leading voice for open-source AI development	<技術開発>	<技術>
-Paparazzi Photos Were the Scourge of Celebrities. Now, It’s AI.	<技術開発>	<技術>
-Anthropic quietly expands access to Claude ‘Private Alpha’ at open-source event in San Francisco		
-Edge Direct to Speak at NTEN Nonprofit Technology Conference		
-Artificial intelligence deepfake video of Harry Potter characters in faux-Balenciaga fashion show goes viral		
-Machine Learning Helps Electron Microscopy		
-Get to Know: Martin McGregor, CEO and Co-founder of Devicie		
-This app is like ChatGPT for your email, and it changed my life		
-How Professional Services Firm EY Is Making Government’s Online Presences Accessible To All Citizens		
-Operational Maturity Removes Three Major Blockers To Business Success		
-Review Rocket - Turn App Store reviews into feature ideas using GPT | Product Hunt		
-Dionysus Accelerates Advancement in Maternal Health with Artificial Intelligence		
-Instant Videos Could Represent the Next Leap in A.I. Technology		
-Google needs a 'stronger leader': Analyst		
-Can AI be used to predict ocean waves?	<コラム>	<オピニオン>
-The complex math of counterfactuals could help Spotify pick your next favorite song		
-Brace Yourself for a Tidal Wave of ChatGPT Email Scams		
-RAPID imaging provides numerous opportunities with deep learning		
-AI-Powered Foreign Tourist Sites Playfully Extol Denmark's Virtues in Innovative Marketing Campaign	<技術開発>	<技術>
-AITX’s Subsidiary Robotic Assistance Devices Takes Delivery of Over 700 ROSA Shells		
-What Is Thermography and How Can the Manufacturing and Processing Industries Use It?	<コラム>	<オピニオン>
-Otherside Connects Metaverse to the Real World Through Physical NFTs With Gucci		
-Canary Mail Review		
-Entrepreneurs Share Their First Creator Revenue and Advice		
-Innovation At The Heart Of UK Medtech Strategy - Patent - UK		
-Get Client wins international marketing award - Two Comma Club #GetClient		
-FITFCK Releases Dating App for Gym Lovers		
-Why professional shipbroking standards matter more than ever before - SAFETY4SEA		
-Return of the People Machine		
-Post, a publisher-focused Twitter alternative, launches to public		
-Ooredoo and Reailize deliver best-in-class network experience for in-stadium and nationwide mobile communications		
-Here’s what traditional and digital brands did for Metaverse Fashion Week		
-Satellites reveal hotspots of global river extent change		
-OnePlus to launch multiple 5G phones, 5G FWA device in India in late 2023: Navnit Nakra - ET Telecom		
-Motor Monitoring Market is estimated to be US$ 3.9 billion by 2032 with a CAGR of 8.8% over the forecast period (2022-2032)-By PMI		
-HKTDC Launches Seven Parallel Events To Cover Lifestyle Products And Licensing		
-Develop a Routine Schedule for Calibrating Precision Measurement Equipment		
-Neurocomputing | Vol 535, Pages 1-182 (28 May 2023)		
-LabGenius Appoints Prof Hendrik-Tobias Arkenau and Prof Victor Greiff as Scientific Advisors		
-Global Corporate Reputation Scores Continue To Decline According To The 2023 Global RepTrak(R) 100		
-Jacob Andreas and Mingda Li honored with Junior Bose Award for Excellence in Teaching		
-Clovis schools implement AI technology to prevent shootings		
-HBS New Venture Competition promotes ideas and ventures to change the world		
-DNV prepares for new era of risk following another strong year		
-Government Committed To Building A Digitized Modern Sri Lank...		
-Plants make ultrasonic popping sounds. They might be cries for help.		
-Yum China Releases 2022 Sustainability Report - Yum China Holdings (NYSE:YUMC)		
-Dubai Airshow to focus on sustainability drive		
-Salah Al-Zaiti earned a Fulbright Scholar Award		
-Neural dynamics underlying associative learning in the dorsal and ventral hippocampus		
-The Man Who Placed the First Mobile Call 50 Years Ago Talks Phones of the Future		
-Global Handheld Ultrasound Devices Market to 2030: Increasing Demand for Accurate and Rapid Diagnosis With Point-Of-Care Ultrasound (POCUS) Tests Drives Growth		
-Top 10 Safety Features Every Car Should Have In 2023		
-27% of survey respondents OK with texting while driving, distractions cause nearly 3K deaths a year		
-HVS's Hydrogen Truck To Offer Up To 370 Miles Of Range		
-Global Commercial Booster Pumps Market Is Likely To Surpass US$ 12000M In 2033 At A Steady Growth Rate For Next Decade		
-Suppression of effects of temperature variation by high-order frequency modulation in large fiber-optic gyroscopes		
-Emergence of a predictive model in the hippocampus		
-Tips to help students perform their best in online exams - SmartBrief		
-How AI Can Look Into Your Eyes And Diagnose A Devastating Brain Disease		
-More sophisticated phishing, social engineering up 135% amid backdrop of AI adoption		
-Senate Bill Aimed to Help DOD Further Develop Tech Talent in US Military		
-New test will revolutionise detection of viruses such as Covid		
-Atrium Health Wake Forest Baptist using AI, robotics to diagnose lung cancer		
-The CellPhe toolkit for cell phenotyping using time-lapse imaging and pattern recognition		
-AI testing of brain tumors can detect genetic cancer markers in less than 90 seconds, study finds		
-How Tech-Based Mental Health Services Could Help Underserved Indians		
-AI That Tracks Coughs Can Change the Way We Diagnose Disease		
-Italy has banned ChatGPT, but will its clampdown work?	<コラム>	<オピニオン>
-ChatGPT Falsely Accuses Legal Scholar Of Sexual Misconduct, Raises Concerns Over Accuracy: Report		
-Google’s belt-tightening is thinning out the company’s lavish perks		
-Cybereason Secures $100 Million in Funding Led by SoftBank Corp.		
-China seethes as US chip controls threaten tech ambitions		
+将来、水素エネルギーは工場にどうやって供給されることになるのか？：製造業×脱炭素 インタビュー（1/2 ページ）	<コラム>,<利用・採用>,<生産活動>,<対談>	<技術>,<製品サービス>,<オピニオン>
+球の全周に歯車…兼松・山形大が量産目指す「球状歯車」がスゴい ニュースイッチ by 日刊工業新聞社	<コラム>	<オピニオン>
+新規事業の「事業性評価」に必要な6つの意思決定──机上で考えたペルソナを捨て、実在するユーザーを見る | Biz/Zine	<方針>,<見解>	<オピニオン>,<目標>
+高温で蓄熱して低温で放熱、産総研がスゴい新合金開発 ニュースイッチ by 日刊工業新聞社	<技術開発>	<技術>
+微生物で石油化学製品の代替品。カーボンニュートラルのカギを握る「バイオファウンドリ」とは？ ニュースイッチ by 日刊工業新聞社	<コラム>	<オピニオン>
+トヨタとデンソーが実証する水素循環の仕組み ニュースイッチ by 日刊工業新聞社	<実験>,<レビュー>	<技術>,<レビュー>
+太陽光発電がビルの窓と一体化する 次世代エネルギーの主役候補＝ペロブスカイト太陽電池 | 技術・研究開発 | 技術・研究開発 | 特集	<技術開発>,<研究>,<レビュー>	<技術>,<レビュー>
+世界最速最多 ChatGPT APIを5つの主要DXプロダクトに導入。デモ版無料公開中	<社会統計>,<利用・採用>,<イベント>,<実験>	<イベント>,<技術>,<社会>
+究極の”真”ARグラス「RayNeo X2」、米CESでも大きな話題。中国「雷鳥創新」、双眼フルカラー実現（36Kr Japan）	<レビュー>,<技術開発>	<技術>,<レビュー>
+次世代半導体材の研究開発を加速、三菱ケミカルグループが一手 ニュースイッチ by 日刊工業新聞社	<戦略>,<方針>	
+EV急増で充電問題どうなる!? 家庭用の普通充電器は販売好調！ 高出力な急速充電器の課題とは？（くるまのニュース）	<商品化>,<レビュー>,<社会問題>	<製品サービス>,<社会>,<レビュー>
+「よそ見したら死ぬ」…商用化に奔走する企業 [KWレポート] 火がついたAI開発競争 (7)	<レビュー>,<レポート>	<レビュー>,<レポート>
+ホンダが燃料電池モジュールのプロトタイプを披露。自社製品以外にも外販を予定【第19回 FC EXPO水素・燃料電池展】	<情報公開>,<戦略>	
+新プラ素材、微生物が生成　エコ食器普及に弾み・大阪 - 日本経済新聞	<技術開発>,<市場動向>	<技術>
+工場でのCO2回収や水素の活用はスモールスタートから、デンソーの提案（MONOist）	<提案>,<業界情報>	<オピニオン>
+二酸化炭素を閉じ込める「バイオプラスチック」が環境に及ぼす影響とは？	<コラム>	<オピニオン>
+いよいよ性能を上げまくっている「ジェネラティブＡＩ」が、人間の「内面」をボロボロにしてしまいそうな理由（現代ビジネス）	<レビュー>	<レビュー>
+【ビジネス解読】ＥＶの進化に〝落とし穴〟　先端技術に軍事利用のリスク	<レビュー>,<障害>	<社会>,<レビュー>
+「充電ナシ」で走り続けるEV！？ 東大院が生み出した新技術で、いよいよ爆速普及にリーチか？ | Merkmal（メルクマール）	<技術開発>	<技術>
+EVシフト幻想から覚めた欧州、現実解は合成燃料と一体の「ハイブリッドシフト」	<技術動向>	<技術>,<オピニオン>
+韓国でEV車の販売が激減、一体なぜ？＝ネット「EVを買う人はおかしい」	<コラム>	<オピニオン>
+次世代太陽電池「ペロブスカイト」を駅で実証、実用化へ次のステップは？ ニュースイッチ by 日刊工業新聞社	<コラム>	<オピニオン>
+急な発表「トヨタEV優先」の作戦、世界はどう見るか？（Forbes JAPAN）	<見解>,<コラム>	<オピニオン>
+なぜ!? EU連合が2035年「EV以外売らない」宣言！ 欧州が電動車シフトに急ぎ出した「理由」とは（くるまのニュース）	<方針>,<レビュー>	<レビュー>,<目標>
+ChatGPTの衝撃、Microsoftが対話AIで描く勝算は？ - 日本経済新聞	<コラム>,<方針>,<市場動向>	<オピニオン>,<目標>
+ホンダ、水素事業の取り組みを拡大へ　CR-VベースのFCEVは国内でも発売へ |  財経新聞	<設備投資>,<目標>,<商品化>	<製品サービス>,<目標>
+丸紅がEV廃電池のリサイクル参画、希少金属の再生材料を安定供給へ ニュースイッチ by 日刊工業新聞社	<業界情報>,<利用・採用>,<目標>	<技術>,<目標>
+「全製品バイオマス化」を目指す。三井化学と帝人が挑戦する、真に持続可能な社会とは	<方針>,<目標>,<コラム>	<オピニオン>,<目標>
+中国車載電池大手CATL、トーヨーカラーが開発した新材料を採用　24年に搭載予定（36Kr Japan）	<利用・採用>	<技術>
+淡水化も精製も不要——海水から直接水素を製造する安価な手法を開発 | fabcross	<技術開発>	<技術>
+温室ガス削減量を売買「カーボンクレジット」　企業が続々参入する3000億円市場の中身	<レビュー>	<レビュー>
+【CO2回収技術】BASF、日本初の国産天然ガスを用いたブルー水素・アンモニア製造実証試験に貢献	<技術開発>,<説明>	<技術>,<レビュー>
+「なぜ日本人は社会に出ると学ぶことをやめるのか？」海外の経営者が疑問を抱く理由（ダイヤモンド・オンライン）	<レビュー>	<レビュー>
+「ペロブスカイト太陽電池」を都心の建物外壁に、実証実験が始まる ニュースイッチ by 日刊工業新聞社	<実験>	<技術>
+ＡＩブーム再燃「チャットＧＰＴ」が問う人間の価値 ニュースイッチ by 日刊工業新聞社	<レビュー>	<レビュー>
+【実践】新規事業の成功率を、格段に引き上げる方法とは	<方針>,<レビュー>	<レビュー>,<目標>
+「機が熟したいま、EVファーストで」  【トヨタ】佐藤次期社長が事業変革を表明	<方針>	
+ポリカーボネート樹脂ケミカルリサイクルの世界初の事業化に向けた検討開始について	<方針>,,<レビュー>	<レビュー>,<目標>
+次なるテクノロジーの波はメタバースではない　「ジェネレーティブAI」の大波がやってくる（1/3ページ）	<コラム>	<オピニオン>
+【山口】西村経済産業大臣がアンモニア導入を計画する周南コンビナート視察（ＫＲＹ山口放送）	<政府・宣言>,<戦略>,<政府・会談>	<政策>,<目標>
+NEDOなどが廃熱利用の発電を大きく効率化する新技術　25年度ごろの実用化目指す | 電波新聞デジタル	<技術開発>,<時制.未来>	<技術>,<目標>
+家庭用コンセントで充電できる「１人乗り超小型EV」の実力値 ニュースイッチ by 日刊工業新聞社		
+複数のAIモデル活用で製造業のDXを促進、技術情報の価値最大化を図るサービス開始：製造現場向けAI技術	<技術開発>,<サービス開始>,<生産活動>	<技術>,<製品サービス>
+再エネとメタン直接改質でターコイズ水素製造 コスモ／戸田工業、素材技術でＣＣＵＳ応用も - 石油通信社のブログ	<生産活動>,<技術開発>	<技術>,<製品サービス>
+「トップレベルで仕事がデキる人」に共通する、3つの思考階段とは？（ダイヤモンド・オンライン）	<コラム>	<オピニオン>
+ごみ処理施設、CO2分離回収を実証へ　郡山市と川崎重工が連携	<実験>,<目標>,<提携>,<政府・宣言>	<技術>,<政策>,<提携>,<目標>
+名古屋大と名大発ベンチャーのミサリオ、温めると縮む新材料「ピロリン酸亜鉛マグネシウム」微粒子化に成功（日刊自動車新聞） | 自動車情報サイト【新車・中古車】 - carview!	<技術開発>	<技術>
+【新成長戦略】電気設備と3つの電池で、サステナブルな未来をつくる	<戦略>,<経済>,<コラム>	<オピニオン>,<目標>
+水と油、超音波で混合 信州大教授が新手法開発 乳化剤使わず環境負荷軽減	<技術開発>	<技術>
+「何歳になっても老け込まない人」の時間の使い方の特徴とは？	<レビュー>	<レビュー>
+東大と大阪公立大、界面を制御して高性能な有機無機ハイブリッド材料を実現	<技術開発>	<技術>
+【微生物で発電】小腸で発電する微生物燃料電池を開発したぞ｜parton｜note	<技術開発>	<技術>
+ニュース：凸版印刷、チェコに透明バリアフィルム生産拠点を新設	<設備投資>	
+東北大学、多様な機能をシームレスに集積化した微細カテーテルの開発に成功	<技術開発>	<技術>
+東工大発新興がアンモニア製造実証、新触媒で低温・低圧実現	<生産活動>,<技術開発>	<技術>,<製品サービス>
+日本企業に広がる｢CO2実質ゼロLNG｣が抱える課題	<業界情報>,<レビュー>,<社会問題>	<社会>,<レビュー>
+半固体電池、量産の幕開け　京セラなど要素技術を確立 - 日本経済新聞	<技術開発>,<市場動向>	<技術>
+ChatGPT x MLOps（AI自律学習システム）、AI議事録「CalqTalk」にて実証実験開始	<実験>	<技術>
+温暖化対策で注目のCO2回収テクノロジー｢DAC｣　世界最大規模のプラントが続々と稼働するワケ	<設備投資>,<生産活動>,<レビュー>	<製品サービス>,<レビュー>
+議事録生成AI「CalqTalk」の更なる飛躍: OpenAIのChatGPTとWhisperで高速高精度化	<技術開発>	<技術>
+車樹脂部品、再生に参入 - 日本経済新聞	<業界情報>,<市場動向>	
+タービン発電機の全損失５％超低減、三菱電機が開発したスゴい絶縁技術 ニュースイッチ by 日刊工業新聞社	<効果>,<技術開発>	<技術>
+分解して分かったテスラModel 3の際立つ独自設計	<技術開発>	<技術>
+中央大・日大・金沢大など、「過去最高の物理吸収量を持つCO2吸収液（イオン液体）の理論設計とその迅速具現化」に成功 - 日本経済新聞	<技術開発>,<市場動向>	<技術>
+世界最大手の車載電池メーカーCATLにLiB用材料が採用	<利用・採用>	<技術>
+【おしぼり自動展開ロボットの共同開発】AI活用で検品・除外を実現、地方工場のDX化で人手不足の解消へ	<技術開発>,<目標>	<技術>,<目標>
+産業用一転…ゲームに引き合い、「触覚」再現する鉄の流体の正体 ニュースイッチ by 日刊工業新聞社	<レビュー>	<レビュー>
+ＥＶ使用済み蓄電池、リユース応用製品拡大／フォーアールエナジー | 電気新聞ウェブサイト	<業界情報>,<方針>	
+太陽電池の発電効率2倍に成功、広島大学が有機半導体を高結晶化 ニュースイッチ by 日刊工業新聞社	<技術開発>	<技術>
+ChatGPTを3カ月使い倒してわかった！ 仕事で活用する5つのコツと注意点 #TrendBuzz（ライフハッカー・ジャパン）	<コラム>	<オピニオン>
+「評価される人」と「評価されない人」の決定的な違いとは？	<表彰>,<レビュー>	<レビュー>
+「成果をだす人」が絶対に採用しない“ルール”ーー真面目なリーダーほど陥る「士気爆下げ」の危険（東洋経済オンライン）	<人事>,<利用・採用>,<障害>	<技術>,<社会>
+大型ガスタービンにおけるアンモニア専焼技術を2030年までに共同開発	<技術開発>	<技術>
+汗の成分を検出するファイバーを織り込んだ衣類用生地を開発：医療機器ニュース	<技術開発>	<技術>
+100％植物由来のバイオプラを販促用品向けで展開、高い流動性で成形性に優れる	<業界情報>,<方針>	
+「サメ肌」技術で抵抗減らす　JALやJAXAなど研究　ニコンは半導体技術で | 電波新聞デジタル	<技術開発>,<研究>	<技術>
+シリコンを用いた水分解による低コスト水素燃料生成	<技術開発>	<技術>
+高機能プラ、低温で分子レベルのリサイクル　産総研	<技術開発>	<技術>
+太陽電池セル世界大手が日本でパネル発売へ | 太陽光発電の専門メディア　PVeyeWEB	<商品化>,<目標>	<製品サービス>,<目標>
+九州大ら、グラフェンデバイスの特性を大きく向上	<技術開発>	<技術>
+人とロボットの協働作業をデジタルツイン化、トヨタが実証実験に協力：FAニュース	<技術開発>,<提携>	<技術>,<提携>
+UBEがガス分離膜の製造設備を増設、生産能力が1.8倍に		
+ChatGPT「知能の相転移へ」「AIの転換期」…識者分析 - 日本経済新聞	<業界情報>,<研究>,<市場動向>	<技術>
+三井化学と三菱ガス化学がバイオマスポリカーボネート製品の生産と販売を開始	<サービス開始>,<商品化>,<生産活動>	<製品サービス>
+脱・温暖化その手法 第52回　―ほとんどのエネルギーの源は太陽からー	<レビュー>,<イベント>	<イベント>,<レビュー>
+大阪ガス、30年にCO2から都市ガス　豪州で生産し輸出 - 日本経済新聞	<生産活動>,<市場動向>	<製品サービス>
+自動車向け半導体需要は今後10年で倍増する（ニュースイッチ）	<業界情報>	
+豊田合成・東海理化…トヨタ系部品メーカーの新規事業が成長軌道に乗り始めた！ ニュースイッチ by 日刊工業新聞社	<戦略>	
+溶媒不要の化学反応、新触媒で収率50倍　北海道大学 - 日本経済新聞	<技術開発>,<市場動向>	<技術>
+SVP注目市場分析 「セルロースナノファイバー」を公開	<市場動向>,<イベント>	<イベント>
+ＮＥＣが担当、経産省が「次世代ＤＣプロジェクト」の開発を中止する背景事情 ニュースイッチ by 日刊工業新聞社	<サービス終了>,<レビュー>	<製品サービス>,<レビュー>
+睡眠脳波のAI診断の前に立ちふさがる「グレーな教師」データ問題（ナショナル ジオグラフィック日本版）	<レビュー>,<社会問題>	<社会>,<レビュー>
+EV向け車載電池｢気がつけば供給過剰｣の衝撃	<レビュー>	<レビュー>
+液体でできた微小なレーザ光源の開発に成功 | e.x.press	<技術開発>	<技術>
+バイオ由来の高吸水ポリマーを開発 25年上市想定 NAGASEグループ - 食品新聞 WEB版（食品新聞社）	<技術開発>,<生活>	<技術>
+AGC、サンゴバン社と板ガラス製造におけるCO2排出量大幅削減に向け共同開発に合意	<目標>,<契約>	<提携>,<目標>
+文化の違いからギスギスした人間関係に…グローバル組織の課題（日経ビジネス）	<目標>,<レビュー>,<社会問題>	<社会>,<レビュー>,<目標>
+ChatGPTにWordPressプラグインを要求したら数日かかる作業を5分で完了させたという報告	<情報公開>	
+外部環境に合わせて変えるべきは「戦略」ではなく、まず「組織」　組織開発×戦略構築における、3つの「常識の逆」をいく視点	<組織>,<コラム>	<オピニオン>
+「生産CO2フリー製品」プロジェクトについて、第三者機関による妥当性評価を取得：時事ドットコム	<業界情報>,<表彰>	
+｢誰にも刺さらないサービス｣を生むUIUXの大失敗	<レビュー>,<障害>	<社会>,<レビュー>
+DX推進を阻む「3つの壁」と失敗に終わる「6つの根本原因」（幻冬舎ゴールドオンライン）	<レビュー>,<障害>	<社会>,<レビュー>

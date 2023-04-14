@@ -16,11 +16,11 @@ file_name = "data/bq_ajinomoto_ja_updated.json"
 file_name = "data/bq_murata_ja_updated.json"
 file_name = "data/CN_ja.json"
 file_name = "data/theme_log_23_03_06-12.json"
-#file_name = "data/views.json"
+file_name = "data/views.json"
 #file_name = "data/english_title.json"
-file_name = "data/english_err.json"
+#file_name = "data/english_err.json"
 
-file_name = "data/AI.json"
+#file_name = "data/AI.json"
 #file_name = "data/3月人気記事.json"
 #file_name = "data/カーボンニュートラル.json"
 
@@ -37,8 +37,8 @@ for news in articles1:
             continue
     if "translated_title" not in news or  news["translated_title"] == None:
         if "text" in news:
-            category_list = model.news_category_classification(news["title"], news["text"])  # カテゴリの候補の抽出
-#            category_list = model.news_category_classification(news["title"], "")  # カテゴリの候補の抽出
+#            category_list = model.news_category_classification(news["title"], news["text"])  # カテゴリの候補の抽出
+            category_list = model.news_category_classification(news["title"], "")  # カテゴリの候補の抽出
         else:
             category_list = model.news_category_classification(news["title"], "")  # カテゴリの候補の抽出
     else:

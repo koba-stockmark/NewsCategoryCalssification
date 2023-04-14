@@ -31,8 +31,8 @@ class CategoryClassification:
     ######################################################
     def title_punct_cut(self, text):
         let_line = ""
-        if text.endswith("」"):
-            let_line = text[:text.rfind("「")]
+#        if text.endswith("」"):
+#            let_line = text[:text.rfind("「")]
         if text.endswith("）"):
             let_line = text[:text.rfind("（")]
             if "）" in text[text.rfind("（"):-1]:
@@ -86,6 +86,8 @@ class CategoryClassification:
                 ret = ret + "。"
             elif len(text) > ct + 2 and ch == "そ" and text[ct + 1] == "の" and (text[ct + 2].isdigit() or (text[ct + 2] >= "０" and text[ct + 2] <= "９")):  # その２
                 ret = ret + "。" + ch
+            elif ch == "社" and ret.endswith("会。"):
+                ret = ret[:-1] + ch
             else:
                 ret = ret + ch
             ct = ct + 1

@@ -39,6 +39,17 @@ class SentenceCategoryCheker:
             verb2 = verb + "。"
             if verb2 in rule:
                 return True
+        for check in rule:
+            if "*" in check:
+                post_w = check[check.find("*") + 1:]
+                if post_w:
+                    che = verb[0:-len(post_w)]
+                else:
+                    che = verb
+                if (not post_w or post_w == verb[-len(post_w):]) and check[:check.find("*")] in che:
+                    return True
+                elif "*" in post_w and check[:check.find("*")] in che and post_w[:post_w.find("*")] in che:
+                    return True
         return False
 
     # 後方一致での辞書とのマッチング
@@ -268,6 +279,8 @@ class SentenceCategoryCheker:
             for pt in range(obj_start, obj_end + 1):
                 if (len(doc) > pt + 1 and (doc[pt + 1].lemma_ == '方' or doc[pt + 1].lemma_ == 'ため')) or (len(doc) > pt + 2 and doc[pt + 1].pos_ == 'AUX' and (doc[pt + 2].lemma_ == '方' or doc[pt + 2].lemma_ == 'ため')):      # 〇〇する方　はフェーズ判断に用いな
                     continue
+                if "名詞-普通名詞-サ変可能" not in doc[pt].tag_:
+                    continue
                 ret2 = self.category_chek(pt, pt, "", -1, -1, -1, -1, '', 1, p_rule, *doc)
                 if ret2:
                     for ret3 in ret2.split(','):
@@ -452,6 +465,11 @@ class SentenceCategoryCheker:
             if not chek_predicate["main"] and p_rule != rule:
                 ok_f = self.sub_predicate_check(chek_predicate, argument, p_rule, *doc)
             if chek_predicate["main"] or ok_f:
+                if (chek_predicate["main"] and "predicate_relation_to" in chek_predicate and
+                        ((doc[chek_predicate["lemma_end"]].morph.get("Inflection") and '連体形' in doc[chek_predicate["lemma_end"]].morph.get("Inflection")[0])
+                         or chunker.rentai_check(chek_predicate["lemma_end"], *doc)) and
+                        (doc[predicate[chek_predicate["predicate_relation_to"]]["lemma_end"]].dep_ != "ROOT")):
+                    continue
                 pre_category = ''
                 koto_f = False
                 for re_arg in argument:

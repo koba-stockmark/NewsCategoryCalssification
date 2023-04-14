@@ -1,14 +1,10 @@
 [
- {
-  "name": "総合化学",
-  "id": "600318718",
-  "theme_id": "6421",
-  "rank": "17",
-  "created_at": "2023-03-11 19:05:00.000000 UTC",
-  "adp_article_id": "98635677",
-  "title": null,
-  "translated_title": "インドにおける洋上風力開発への提言",
-  "text": null,
-  "url": null
-}
+  {
+    "article_id": "98867754",
+    "title": "SVP注目市場分析 「セルロースナノファイバー」を公開",
+    "unique_view_teams": "43",
+    "unique_view_users": "82",
+    "unique_mark_teams": "14",
+    "unique_mark_users": "23"
+  }
 ]
