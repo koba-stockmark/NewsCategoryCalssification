@@ -3,10 +3,13 @@ from news_category_classification import CategoryClassification
 from category2pest import Category2Pest
 from category2tab import Category2Tab
 from sentence_category_get import SentenceCategoryGet
+from category2tech_tab import Category2TechTab
 
 model = CategoryClassification()    # CategoryClassificationのクラスのインスタンス化
 c2p = Category2Pest()
 c2t = Category2Tab()
+c2tt = Category2TechTab()
+
 sc = SentenceCategoryGet()
 
 articles = json.load(open('data/nikkei.json'))
@@ -30,24 +33,27 @@ articles20 = json.load(open('data/New_OKI_TDK_ng.json'))
 articles21 = json.load(open('data/harabe_tdk.json'))
 articles22 = json.load(open('data/sakamoto_err.json'))
 articles23 = json.load(open("data/error_seif.json"))
+articles24 = json.load(open("data/seikou.json"))
 
 out_file = open('data/category_result.tsv', 'w')
 
-for doc in articles23:
+for doc in articles24:
     for sep_doc in doc.splitlines():
         category_list = model.news_category_classification(sep_doc, "")  # カテゴリの候補の抽出
         if sc.debug:
             pest = ""
             if category_list[0]:
                 #                pest = c2p.category2pest(category_list[0])
-                pest = c2t.category2tab(category_list[0])
+#                pest = c2t.category2tab(category_list[0])
+                pest = c2tt.category2tab(category_list[0])
             print(category_list[0] + "\t" + pest)
             out_file.write(category_list[2])
         else:
             pest = ""
             if category_list[0]:
 #                pest = c2p.category2pest(category_list[0])
-                pest = c2t.category2tab(category_list[0])
+#                pest = c2t.category2tab(category_list[0])
+                pest = c2tt.category2tab(category_list[0])
             print(category_list[0] + "\t" + pest)
             ret = sep_doc + '\t' + category_list[0] + "\t" + pest + '\n'
             out_file.write(ret)

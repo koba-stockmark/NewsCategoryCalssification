@@ -20,8 +20,8 @@ file_name = "data/views.json"
 #file_name = "data/english_title.json"
 #file_name = "data/english_err.json"
 
-#file_name = "data/AI.json"
-#file_name = "data/3月人気記事.json"
+file_name = "data/AI.json"
+file_name = "data/3月人気記事.json"
 #file_name = "data/カーボンニュートラル.json"
 
 articles1 = json.load(open(file_name))

@@ -25,6 +25,7 @@ class SentenceCategoryCheker:
         return category
 
     # 完全一致での辞書とのマッチング
+    # call_mode = 0 術部　=1 項　のチェック
     def rule_check(self, verb, rule, call_mode):
         if verb in rule:
             return True
@@ -39,17 +40,9 @@ class SentenceCategoryCheker:
             verb2 = verb + "。"
             if verb2 in rule:
                 return True
-        for check in rule:
-            if "*" in check:
-                post_w = check[check.find("*") + 1:]
-                if post_w:
-                    che = verb[0:-len(post_w)]
-                else:
-                    che = verb
-                if (not post_w or post_w == verb[-len(post_w):]) and check[:check.find("*")] in che:
-                    return True
-                elif "*" in post_w and check[:check.find("*")] in che and post_w[:post_w.find("*")] in che:
-                    return True
+        verb2 = verb + "*"
+        if verb2 in rule:
+            return True
         return False
 
     # 後方一致での辞書とのマッチング
@@ -97,7 +90,7 @@ class SentenceCategoryCheker:
         return obj_end
 
     ok_case = ["を", "の", "へ", "と", "で", "が", "も", "のみ", "に", "など", "や"]
-    def category_chek(self, start, end, modality_w, sub_start, sub_end, obj_start, obj_end, pre_category, call_mode, p_rule, *doc):
+    def category_chek(self, start, end, modality_w, sub_start, sub_end, obj_start, obj_end, case, pre_category, call_mode, p_rule, *doc):
         if start == -1 or end == -1:
             return ""
         chunker = ChunkExtractor()
@@ -146,6 +139,11 @@ class SentenceCategoryCheker:
                                 ng_f = True
                                 break
                         if ng_f:
+                            continue
+                    if "ng_case" in rule["rule"]:
+                        if case in rule["rule"]["ng_case"]:
+                            continue
+                        elif "-" in case and case.split("-")[1] in rule["rule"]["ng_case"]:
                             continue
                     for check_verb in rule["rule"]["verb"]:
                         if check_verb and (check_verb in verb_word or check_verb in "[" + verb_word + "]" or check_verb == ".*"):
@@ -265,7 +263,7 @@ class SentenceCategoryCheker:
 
         # 目的語からフェーズをチェック
         if verb_word in s_v_dic.sub_verb_dic and verb_word not in s_v_dic.special_sub_verb_dic and obj_start >= 0 and "サ変可能" in doc[obj_end].tag_:
-            ret2 = self.category_chek(obj_start, obj_end, "", -1, -1, -1, -1, '', 1, p_rule,  *doc)
+            ret2 = self.category_chek(obj_start, obj_end, "", -1, -1, -1, -1, "", "", 1, p_rule,  *doc)
             # 項全体として重複をチェック
             if ret2:
                 for ret3 in ret2.split(','):
@@ -281,7 +279,7 @@ class SentenceCategoryCheker:
                     continue
                 if "名詞-普通名詞-サ変可能" not in doc[pt].tag_:
                     continue
-                ret2 = self.category_chek(pt, pt, "", -1, -1, -1, -1, '', 1, p_rule, *doc)
+                ret2 = self.category_chek(pt, pt, "", -1, -1, -1, -1, "", "", 1, p_rule, *doc)
                 if ret2:
                     for ret3 in ret2.split(','):
                         if ret:
@@ -295,7 +293,7 @@ class SentenceCategoryCheker:
                     doc[obj_end + 2].lemma_ == '方' or doc[obj_end + 2].lemma_ == 'ため')):  # 〇〇する方　はフェーズ判断に用いな
                 pass
             else:
-                ret2 = self.category_chek(obj_end, obj_end, "", -1, -1, -1, -1, '', 1, p_rule, *doc)
+                ret2 = self.category_chek(obj_end, obj_end, "", -1, -1, -1, -1, "", "", 1, p_rule, *doc)
                 if ret2:
                     for ret3 in ret2.split(','):
                         if ret:
@@ -523,8 +521,11 @@ class SentenceCategoryCheker:
                                 # 〜こと　の成分の動詞（〜）にかかる句を調べる
                                 if check_p["lemma_start"] <= re_arg['lemma_start'] <= check_p["lemma_end"] or check_p["sub_lemma_start"] <= re_arg['lemma_start'] <= check_p["sub_lemma_end"]:
                                     for check_a in argument:
+                                        case = ""
+                                        if "case" in check_a:
+                                            case = check_a["case"]
                                         if check_a["predicate_id"] == check_p["id"]:
-                                            sub_category = self.category_chek(check_p["lemma_start"], check_p["lemma_end"], check_p["modality"], check_p["sub_lemma_start"], check_p["sub_lemma_end"], check_a["lemma_start"], check_a["lemma_end"], '', 0, p_rule, *doc)
+                                            sub_category = self.category_chek(check_p["lemma_start"], check_p["lemma_end"], check_p["modality"], check_p["sub_lemma_start"], check_p["sub_lemma_end"], check_a["lemma_start"], check_a["lemma_end"], case, '', 0, p_rule, *doc)
                                             pre_category = sub_category
                                             if re_arg["subject"]:
                                                 koto_f = True
@@ -532,7 +533,7 @@ class SentenceCategoryCheker:
                                                 check_end = chek_predicate["sub_lemma_end"]
                                                 if doc[check_end].pos_ == 'AUX':  # 形容動詞の場合は助動詞部分を覗いてチェック
                                                     check_end = check_end - 1
-                                                add_category = self.category_chek(chek_predicate["sub_lemma_start"], check_end, chek_predicate["modality"], -1, -1, re_arg['lemma_start'], re_arg['lemma_end'], pre_category, 0, p_rule, *doc)
+                                                add_category = self.category_chek(chek_predicate["sub_lemma_start"], check_end, chek_predicate["modality"], -1, -1, re_arg['lemma_start'], re_arg['lemma_end'], case, pre_category, 0, p_rule, *doc)
                                                 pre_category = add_category
                                                 for append in add_category.split(','):  # 重複は登録しない
                                                     if append != '<その他>' and append != '<告知>' and append not in sub_category:
@@ -540,17 +541,17 @@ class SentenceCategoryCheker:
                                                             sub_category = sub_category + ',' + append
                                                         else:
                                                             sub_category = append
-                            category = self.category_chek(chek_predicate["lemma_start"], check_end, chek_predicate["modality"], chek_predicate["sub_lemma_start"], chek_predicate["sub_lemma_end"], re_arg['lemma_start'], re_arg['lemma_end'], pre_category, 0, p_rule, *doc)
+                            category = self.category_chek(chek_predicate["lemma_start"], check_end, chek_predicate["modality"], chek_predicate["sub_lemma_start"], chek_predicate["sub_lemma_end"], re_arg['lemma_start'], re_arg['lemma_end'], check_case, pre_category, 0, p_rule, *doc)
                             if not category:
                                 category = sub_category
                         else:
-                            category = self.category_chek(chek_predicate["lemma_start"], check_end, chek_predicate["modality"], chek_predicate["sub_lemma_start"], chek_predicate["sub_lemma_end"], re_arg['lemma_start'], re_arg['lemma_end'], pre_category, 0, p_rule, *doc)
+                            category = self.category_chek(chek_predicate["lemma_start"], check_end, chek_predicate["modality"], chek_predicate["sub_lemma_start"], chek_predicate["sub_lemma_end"], re_arg['lemma_start'], re_arg['lemma_end'], check_case, pre_category, 0, p_rule, *doc)
                         pre_category = category
                         if not category and chek_predicate["sub_lemma"]:
                             check_end = chek_predicate["sub_lemma_end"]
                             if doc[check_end].pos_ == 'AUX':  # 形容動詞の場合は助動詞部分を覗いてチェック
                                 check_end = check_end - 1
-                            add_category = self.category_chek(chek_predicate["sub_lemma_start"], check_end, chek_predicate["modality"], -1, -1, re_arg['lemma_start'], re_arg['lemma_end'], pre_category, 0, p_rule, *doc)
+                            add_category = self.category_chek(chek_predicate["sub_lemma_start"], check_end, chek_predicate["modality"], -1, -1, re_arg['lemma_start'], re_arg['lemma_end'], check_case, pre_category, 0, p_rule, *doc)
                             pre_category = add_category
                             for append in add_category.split(','):  # 重複は登録しない
                                 if append != '<その他>' and append != '<告知>' and append not in category:
@@ -578,7 +579,7 @@ class SentenceCategoryCheker:
                                     single = check_category
             if (chek_predicate["main"] or ok_f) and no_argument:
                 # 項のない述部のチェック
-                category = self.category_chek(chek_predicate["lemma_start"], chek_predicate["lemma_end"], chek_predicate["modality"], chek_predicate["sub_lemma_start"], chek_predicate["sub_lemma_end"], -1, -1, "", 0, p_rule, *doc)
+                category = self.category_chek(chek_predicate["lemma_start"], chek_predicate["lemma_end"], chek_predicate["modality"], chek_predicate["sub_lemma_start"], chek_predicate["sub_lemma_end"], -1, -1, "", "", 0, p_rule, *doc)
                 if category:
                     for check_category in category.split(","):
                         if check_category not in single:
@@ -586,7 +587,7 @@ class SentenceCategoryCheker:
                                 single = single + "," + check_category
                             else:
                                 single = check_category
-                    chek_predicate["category"] = single
+                    chek_predicate["category"] = check_category
         single = self.category_merge(single, rule)
         return single
 
