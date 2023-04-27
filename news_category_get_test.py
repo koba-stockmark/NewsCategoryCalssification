@@ -33,11 +33,12 @@ articles20 = json.load(open('data/New_OKI_TDK_ng.json'))
 articles21 = json.load(open('data/harabe_tdk.json'))
 articles22 = json.load(open('data/sakamoto_err.json'))
 articles23 = json.load(open("data/error_seif.json"))
-articles24 = json.load(open("data/seikou.json"))
+articles25 = json.load(open("data/ng_title.json"))
+articles26 = json.load(open("data/ng_title_error.json"))
 
 out_file = open('data/category_result.tsv', 'w')
 
-for doc in articles24:
+for doc in articles26:
     for sep_doc in doc.splitlines():
         category_list = model.news_category_classification(sep_doc, "")  # カテゴリの候補の抽出
         if sc.debug:

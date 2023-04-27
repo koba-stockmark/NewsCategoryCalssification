@@ -50,6 +50,8 @@ class SentenceCategoryCheker:
         # ng chek
         for check in rule:
             if "ng" in check:
+                aa = check[3:-1]
+                bb = verb[-len(check[3:-1]):]
                 if check[3:-1] == verb[-len(check[3:-1]):]:
                     return False
                 if "*" in check:
@@ -339,11 +341,11 @@ class SentenceCategoryCheker:
                                 if d_mod not in modality_w:
                                     multi_find = False
                                     break
-                    if multi_find:
-                        if ret:
-                            ret = ret + ',' + rule["label"]
-                        else:
-                            ret = ret + rule["label"]
+                        if multi_find:
+                            if ret:
+                                ret = ret + ',' + rule["label"]
+                            else:
+                                ret = ret + rule["label"]
 
         # NG ワードによるカテゴリ修正
         for rule in p_rule.phrase_rule:

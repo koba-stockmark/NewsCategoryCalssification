@@ -30,6 +30,15 @@ out_file2 = open(out_file_name, 'w')
 
 out_file = open('data/category_result_json.tsv', 'w')
 
+def map_make(news, category):
+    tags = ["イベント", "技術", "政策", "製品サービス", "社会", "レビュー", "オピニオン", "提携"]
+    for ch_tag in tags:
+        if ch_tag in category:
+            news[ch_tag] = True
+        else:
+            news[ch_tag] = False
+    return
+
 for news in articles1:
     if not news["title"] and ("text" not in news or not news["text"]):
         if not news["translated_title"] and ("text" not in news or not news["translated_title"]):
@@ -57,6 +66,7 @@ for news in articles1:
             ret = news["title"] + '\t' + category_list[0] + "\t" + pest + '\n'
         news["category"] = category_list[0]
         news["Anews"] = pest
+        map_make(news, pest)
         out_file.write(ret)
     print("--------------------\n")
     if sc.debug:
