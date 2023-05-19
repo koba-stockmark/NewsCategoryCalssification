@@ -20,9 +20,12 @@ file_name = "data/views.json"
 #file_name = "data/english_title.json"
 #file_name = "data/english_err.json"
 
-file_name = "data/AI.json"
-file_name = "data/3月人気記事.json"
+#file_name = "data/AI.json"
+#file_name = "data/3月人気記事.json"
 #file_name = "data/カーボンニュートラル.json"
+
+file_name = "data/view_log.json"
+file_name = "data/gold_data.json"
 
 articles1 = json.load(open(file_name))
 out_file_name = file_name.split(".")[0] + "_out.json"
@@ -44,10 +47,10 @@ for news in articles1:
         if not news["translated_title"] and ("text" not in news or not news["translated_title"]):
             out_file.write("")
             continue
-    if "translated_title" not in news or  news["translated_title"] == None:
+    if "translated_title" not in news or  news["translated_title"] == None or news["translated_title"] == "":
         if "text" in news:
-#            category_list = model.news_category_classification(news["title"], news["text"])  # カテゴリの候補の抽出
-            category_list = model.news_category_classification(news["title"], "")  # カテゴリの候補の抽出
+            category_list = model.news_category_classification(news["title"], news["text"])  # カテゴリの候補の抽出
+#            category_list = model.news_category_classification(news["title"], "")  # カテゴリの候補の抽出
         else:
             category_list = model.news_category_classification(news["title"], "")  # カテゴリの候補の抽出
     else:
